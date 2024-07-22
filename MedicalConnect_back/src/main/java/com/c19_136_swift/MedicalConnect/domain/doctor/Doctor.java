@@ -1,7 +1,6 @@
 package com.c19_136_swift.MedicalConnect.domain.doctor;
 
-
-import com.c19_136_swift.MedicalConnect.domain.person.Person;
+import com.c19_136_swift.MedicalConnect.domain.user.User;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -10,12 +9,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+
 @Entity(name = "Doctor")
-@Table(name = "Doctors")
+@Table(name = "doctors")
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Doctor extends Person {
+
+public class Doctor extends User {
 
     @Enumerated(EnumType.STRING)
     private MedicalSpecialty medicalSpecialty;
@@ -23,6 +24,5 @@ public class Doctor extends Person {
     private String professionalLicense;
 
     private String jobDescription;
-
 
 }

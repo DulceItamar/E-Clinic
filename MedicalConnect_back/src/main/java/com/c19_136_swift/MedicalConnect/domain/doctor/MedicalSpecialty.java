@@ -48,7 +48,7 @@ public enum MedicalSpecialty {
                 return medicalSpecialty;
             }
         }
-        throw new IllegalArgumentException("Ninguna especialidad encontra "+ text);
+        throw new IllegalArgumentException("Ninguna especialidad encontrada "+ text);
     }
 
 }
