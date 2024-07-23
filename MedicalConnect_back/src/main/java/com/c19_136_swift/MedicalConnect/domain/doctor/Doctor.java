@@ -15,11 +15,10 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class Doctor extends User {
 
     @Enumerated(EnumType.STRING)
-    private MedicalSpecialty medicalSpecialty;
+    private MedicalSpeciality medicalSpeciality;
 
     private String professionalLicense;
 

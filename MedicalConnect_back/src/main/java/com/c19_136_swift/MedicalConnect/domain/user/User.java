@@ -29,5 +29,11 @@ public class User  {
     @Enumerated(EnumType.STRING)
     private StatusOnApp status;
 
-
+    public User(String name, String email, String password, String phoneNumber){
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.status = StatusOnApp.ACTIVE;
+    }
 }

@@ -1,6 +1,6 @@
 package com.c19_136_swift.MedicalConnect.domain.doctor;
 
-public enum MedicalSpecialty {
+public enum MedicalSpeciality {
     ALERGOLOGIA_INMUNOLOGIA("Alergología e Inmunología"),
     CARDIOLOGIA("Cardiología"),
     DERMATOLOGIA("Dermatología"),
@@ -38,14 +38,14 @@ public enum MedicalSpecialty {
 
     private String getSpecialtyInSpanish;
 
-    MedicalSpecialty(String getSpecialtyInSpanish){
+    MedicalSpeciality(String getSpecialtyInSpanish){
         this.getSpecialtyInSpanish = getSpecialtyInSpanish;
     }
 
-    public static MedicalSpecialty fromSpanish(String text) {
-        for (MedicalSpecialty medicalSpecialty: MedicalSpecialty.values()){
-            if (medicalSpecialty.getSpecialtyInSpanish.equalsIgnoreCase(text)){
-                return medicalSpecialty;
+    public static MedicalSpeciality fromSpanish(String text) {
+        for (MedicalSpeciality medicalSpeciality : MedicalSpeciality.values()){
+            if (medicalSpeciality.getSpecialtyInSpanish.equalsIgnoreCase(text)){
+                return medicalSpeciality;
             }
         }
         throw new IllegalArgumentException("Ninguna especialidad encontrada "+ text);

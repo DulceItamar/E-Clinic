@@ -8,6 +8,7 @@ public record PatientDataDetailsDTO(
 
         Long id,
         String name,
+        String email,
         Date birthdate,
         Gender gender
 
