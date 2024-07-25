@@ -1,5 +1,6 @@
-package com.c19_136_swift.MedicalConnect.domain.doctor;
+package com.c19_136_swift.MedicalConnect.domain.doctor.DTOs;
 
+import com.c19_136_swift.MedicalConnect.domain.doctor.MedicalSpeciality;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
