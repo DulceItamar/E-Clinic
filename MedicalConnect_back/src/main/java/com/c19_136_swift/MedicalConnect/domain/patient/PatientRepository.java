@@ -24,4 +24,13 @@ public interface PatientRepository  extends JpaRepository<Patient, Long> {
     Optional<Patient> findByIdAndActive(Long id);
 
 
+    @Query("""
+            SELECT p 
+            FROM Patient p
+            WHERE p.name = :name
+            AND p.status = 'ACTIVE'
+            """)
+    Optional<Patient> findByNameAndActive(String name);
+
+
 }
