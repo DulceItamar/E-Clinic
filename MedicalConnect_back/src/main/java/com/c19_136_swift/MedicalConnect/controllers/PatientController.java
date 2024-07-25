@@ -36,7 +36,7 @@ public class PatientController {
     }
 
     //To get an active patient by its email
-    @GetMapping()
+    @GetMapping("/by-id")
     public ResponseEntity<PatientDataDetailsDTO> patientDetailsById( @RequestParam(name = "id")  Long id){
         var patient = patientRepository.findByIdAndActive(id)
                 .orElseThrow(() -> new PatientNotFoundException("Paciente con id "+ id + "no encontrado o no está activo"));
@@ -46,11 +46,20 @@ public class PatientController {
     }
 
     //To get an active patient by its name
-    @GetMapping()
+    @GetMapping("/by-name")
     public ResponseEntity<PatientDataDetailsDTO> patientDetailsByName( @RequestParam(name = "name") String name) {
         var patient = patientRepository.findByNameAndActive(name)
-                .orElseThrow(() -> new PatientNotFoundException("Paciente con el nombre "+ name + "no encontrado o no está activo"));
+                .orElseThrow(() -> new PatientNotFoundException("Paciente con el nombre "+ name + " no encontrado o no está activo."));
 
+        return ResponseEntity.ok(new PatientDataDetailsDTO(patient));
+
+    }
+
+    //To get an active patient by its phone Number
+    @GetMapping("/by-phone")
+    public ResponseEntity<PatientDataDetailsDTO> patientDetailsByPhone( @RequestParam(name = "phone-number") String phone){
+        var patient = patientRepository.findByPhoneNumberAndActive(phone)
+                .orElseThrow(() -> new PatientNotFoundException("Paciente con el número de teléfono "+ phone + " no encontrado o está activo."));
         return ResponseEntity.ok(new PatientDataDetailsDTO(patient));
 
     }

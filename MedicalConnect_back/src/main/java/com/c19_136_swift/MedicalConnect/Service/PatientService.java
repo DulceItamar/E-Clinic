@@ -25,4 +25,8 @@ public class PatientService {
        return patientRepository.findByNameAndActive(name);
     }
 
+    public Optional <Patient> findByActivePatientByPhoneNumber(String phone){
+        return patientRepository.findByPhoneNumberAndActive(phone);
+    }
+
 }
