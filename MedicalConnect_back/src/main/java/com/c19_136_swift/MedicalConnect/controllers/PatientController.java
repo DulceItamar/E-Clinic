@@ -85,11 +85,11 @@ public class PatientController {
         return ResponseEntity.ok(page);
     }
 
-
+    //Update patient by id
     @PutMapping
     @Transactional
     public ResponseEntity updatePatientById(@RequestBody @Valid UpdatePatientDTO updatePatientDTO) {
-        Patient updatePatient = patientRepository.findByIdAndActive(updatePatientDTO.id()).orElseThrow(() -> new PatientNotFoundException("Paciente no encontrad0"));
+        Patient updatePatient = patientRepository.findByIdAndActive(updatePatientDTO.id()).orElseThrow(() -> new PatientNotFoundException("Paciente no encontrado."));
 
         updatePatient.updateData(updatePatientDTO);
 
@@ -99,5 +99,16 @@ public class PatientController {
         return ResponseEntity.ok( responsePatientDataUpdated);
 
     }
+
+    //Logic Delete (Disable Patient)
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity disablePatientById(@PathVariable Long id ){
+        Patient patient = patientRepository.findByIdAndActive(id).orElseThrow(() -> new PatientNotFoundException("Paciente no encontrado."));
+        patient.disableUserAccount();
+        return ResponseEntity.ok("Paciente deshabilitado");
+    }
+
+
 
 }

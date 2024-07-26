@@ -72,5 +72,9 @@ public class Patient extends User {
        }
     }
 
+    public void disablePatientAccount(){
+        disableUserAccount();
+    }
+
 
 }

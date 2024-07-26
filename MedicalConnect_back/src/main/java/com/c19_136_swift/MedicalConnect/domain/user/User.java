@@ -49,8 +49,8 @@ public class User  {
        if (phoneNumber != null){
            this.phoneNumber = phoneNumber;
        }
-
-
-
+    }
+    public void disableUserAccount(){
+        this.status = StatusOnApp.DISABLED;
     }
 }
