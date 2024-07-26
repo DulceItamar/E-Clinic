@@ -1,12 +1,11 @@
 package com.c19_136_swift.MedicalConnect.controllers;
 
-import com.c19_136_swift.MedicalConnect.domain.patient.DTOs.PatientListDTO;
+import com.c19_136_swift.MedicalConnect.domain.patient.DTOs.*;
 import com.c19_136_swift.MedicalConnect.domain.patient.Gender;
 import com.c19_136_swift.MedicalConnect.domain.patient.Patient;
-import com.c19_136_swift.MedicalConnect.domain.patient.DTOs.PatientDataDetailsDTO;
 import com.c19_136_swift.MedicalConnect.domain.patient.PatientRepository;
-import com.c19_136_swift.MedicalConnect.domain.patient.DTOs.SignInPatientDTO;
 import com.c19_136_swift.MedicalConnect.infra.errors.PatientNotFoundException;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/patients")
@@ -86,12 +86,18 @@ public class PatientController {
     }
 
 
+    @PutMapping
+    @Transactional
+    public ResponseEntity updatePatientById(@RequestBody @Valid UpdatePatientDTO updatePatientDTO) {
+        Patient updatePatient = patientRepository.findByIdAndActive(updatePatientDTO.id()).orElseThrow(() -> new PatientNotFoundException("Paciente no encontrad0"));
+
+        updatePatient.updateData(updatePatientDTO);
+
+        ResponsePatientDataUpdatedDTO responsePatientDataUpdated = new ResponsePatientDataUpdatedDTO(updatePatient.getId(), updatePatient.getName(),updatePatient.getPassword(), updatePatient.getPhoneNumber(), updatePatient.getBirthdate(), updatePatient.getAllergies(), updatePatient.getGender());
 
 
+        return ResponseEntity.ok( responsePatientDataUpdated);
 
-
-
-
-
+    }
 
 }

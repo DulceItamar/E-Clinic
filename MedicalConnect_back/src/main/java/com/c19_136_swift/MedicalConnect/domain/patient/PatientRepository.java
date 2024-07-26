@@ -56,7 +56,7 @@ public interface PatientRepository  extends JpaRepository<Patient, Long> {
 
 
     @Query("""
-            SELECT p 
+            SELECT p
             FROM Patient p
             WHERE p.status = 'ACTIVE'
             """)
