@@ -25,6 +25,7 @@ public class PatientController {
     @Autowired
     PatientRepository patientRepository;
 
+
     //To create a new patient
     @PostMapping
     public ResponseEntity<PatientDataDetailsDTO> signinNewPatient(@RequestBody @Valid SignInPatientDTO patientDTO, UriComponentsBuilder uriComponentsBuilder){
@@ -71,10 +72,17 @@ public class PatientController {
 
     //To get all active patients by their Gender
     @GetMapping("/by-gender")
-    public ResponseEntity<Page<PatientListDTO>> patientsByGendeList(@PageableDefault(size = 10, sort = {"name"}) Pageable pageable,  @RequestParam(name = "gender") Gender gender){
-        var page = patientRepository.findAllByGender(gender, pageable).map(PatientListDTO::new);
+    public ResponseEntity<Page<PatientListDTO>> patientsByGenderList(@PageableDefault(size = 10, sort = {"name"}) Pageable pageable,  @RequestParam(name = "gender") Gender gender){
+        var page = patientRepository.findAllByGenderAndActive(gender, pageable).map(PatientListDTO::new);
         return ResponseEntity.ok(page);
 
+    }
+
+    //To get all active patients
+    @GetMapping
+    public ResponseEntity<Page<PatientListDTO>>  allPatientsList( @PageableDefault(size = 10, sort = {"name"}) Pageable pageable){
+        var page = patientRepository.findAllByActive(pageable).map(PatientListDTO::new);
+        return ResponseEntity.ok(page);
     }
 
 

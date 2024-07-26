@@ -50,8 +50,19 @@ public interface PatientRepository  extends JpaRepository<Patient, Long> {
             SELECT p
             FROM Patient p
             WHERE p.gender = :gender
+            AND p.status = 'ACTIVE'
             """)
-    Page<Patient> findAllByGender(Gender gender, Pageable pageable);
+    Page<Patient> findAllByGenderAndActive(Gender gender, Pageable pageable);
+
+
+    @Query("""
+            SELECT p 
+            FROM Patient p
+            WHERE p.status = 'ACTIVE'
+            """)
+   Page<Patient> findAllByActive(Pageable pageable);
+
+
 
 
 
