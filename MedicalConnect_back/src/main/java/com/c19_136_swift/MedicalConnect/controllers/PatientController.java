@@ -1,5 +1,6 @@
 package com.c19_136_swift.MedicalConnect.controllers;
 
+import com.c19_136_swift.MedicalConnect.domain.patient.DTOs.PatientListDTO;
 import com.c19_136_swift.MedicalConnect.domain.patient.Gender;
 import com.c19_136_swift.MedicalConnect.domain.patient.Patient;
 import com.c19_136_swift.MedicalConnect.domain.patient.DTOs.PatientDataDetailsDTO;
@@ -8,6 +9,9 @@ import com.c19_136_swift.MedicalConnect.domain.patient.DTOs.SignInPatientDTO;
 import com.c19_136_swift.MedicalConnect.infra.errors.PatientNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -63,6 +67,18 @@ public class PatientController {
         return ResponseEntity.ok(new PatientDataDetailsDTO(patient));
 
     }
+
+
+    //To get all active patients by their Gender
+    @GetMapping("/by-gender")
+    public ResponseEntity<Page<PatientListDTO>> patientsByGendeList(@PageableDefault(size = 10, sort = {"name"}) Pageable pageable,  @RequestParam(name = "gender") Gender gender){
+        var page = patientRepository.findAllByGender(gender, pageable).map(PatientListDTO::new);
+        return ResponseEntity.ok(page);
+
+    }
+
+
+
 
 
 
