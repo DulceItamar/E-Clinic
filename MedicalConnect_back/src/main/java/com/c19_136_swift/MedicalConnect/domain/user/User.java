@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -18,8 +19,8 @@ import java.util.List;
 public class User  {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
+    private UUID id;
 
     private String name;
     private String email;
@@ -27,13 +28,18 @@ public class User  {
     private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
+    private TypeOfUser typeOfUser;
+
+    @Enumerated(EnumType.STRING)
     private StatusOnApp status;
 
-    public User(String name, String email, String password, String phoneNumber){
+    public User(UUID id, String name, String email, String password, String phoneNumber, TypeOfUser typeOfUser){
+        this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
+        this.typeOfUser = typeOfUser;
         this.status = StatusOnApp.ACTIVE;
     }
 

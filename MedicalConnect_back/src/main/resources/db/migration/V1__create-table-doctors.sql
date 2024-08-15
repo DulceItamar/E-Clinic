@@ -1,5 +1,6 @@
 create table doctors(
-    id BIGSERIAL not null,
+    id BIGSERIAL PRIMARY KEY,
+    doctor_id UUID not null
     name varchar(120) not null,
     email varchar(100) not null,
     password varchar(300) not null,
@@ -8,6 +9,9 @@ create table doctors(
     medical_speciality varchar(120) not null,
     professional_license varchar(120) not null,
     job_description TEXT,
-    primary key(id)
+    work_days TEXT [] not null,
+    services TEXT [] not null,
+    service_price FLOAT not null
+
 
 );

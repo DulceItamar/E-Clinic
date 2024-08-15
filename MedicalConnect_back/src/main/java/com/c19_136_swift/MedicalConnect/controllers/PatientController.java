@@ -2,7 +2,7 @@ package com.c19_136_swift.MedicalConnect.controllers;
 
 import com.c19_136_swift.MedicalConnect.domain.patient.DTOs.*;
 import com.c19_136_swift.MedicalConnect.domain.patient.Gender;
-import com.c19_136_swift.MedicalConnect.domain.patient.Patient;
+import com.c19_136_swift.MedicalConnect.domain.patient.model.Patient;
 import com.c19_136_swift.MedicalConnect.domain.patient.PatientRepository;
 import com.c19_136_swift.MedicalConnect.infra.errors.PatientNotFoundException;
 import jakarta.transaction.Transactional;
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/patients")

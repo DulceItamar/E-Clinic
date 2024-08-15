@@ -1,14 +1,15 @@
 package com.c19_136_swift.MedicalConnect.domain.patient;
 
+import com.c19_136_swift.MedicalConnect.domain.patient.model.Patient;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
+import java.util.UUID;
 
-public interface PatientRepository  extends JpaRepository<Patient, Long> {
+public interface PatientRepository  extends JpaRepository<Patient, UUID> {
 
     @Query("""
             SELECT p
@@ -24,7 +25,7 @@ public interface PatientRepository  extends JpaRepository<Patient, Long> {
             WHERE p.id = :id
             AND p.status = 'ACTIVE'
             """)
-    Optional<Patient> findByIdAndActive(Long id);
+    Optional<Patient> findByIdAndActive(UUID id);
 
 
     @Query("""

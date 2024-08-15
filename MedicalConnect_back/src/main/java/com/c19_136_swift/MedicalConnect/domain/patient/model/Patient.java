@@ -1,19 +1,20 @@
-package com.c19_136_swift.MedicalConnect.domain.patient;
+package com.c19_136_swift.MedicalConnect.domain.patient.model;
 
+import com.c19_136_swift.MedicalConnect.domain.medicalConsult.payment.Payment;
 import com.c19_136_swift.MedicalConnect.domain.patient.DTOs.SignInPatientDTO;
 import com.c19_136_swift.MedicalConnect.domain.patient.DTOs.UpdatePatientDTO;
+import com.c19_136_swift.MedicalConnect.domain.patient.Gender;
 import com.c19_136_swift.MedicalConnect.domain.user.User;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Entity(name = "Patient")
 @Table(name = "Patients")
@@ -29,9 +30,12 @@ public class Patient extends User {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
+    @OneToMany
+    private List<PaymentMethodsPatient> paymentMethodsPatientsList = new ArrayList<>();
+
 
     public Patient(SignInPatientDTO patientDTO){
-        super(patientDTO.name(), patientDTO.email(), patientDTO.password(), patientDTO.phone());
+        super(patientDTO.uuid(),patientDTO.name(), patientDTO.email(), patientDTO.password(), patientDTO.phoneNumber(), patientDTO.typeOfUser());
         this.birthdate = patientDTO.birthdate();
         this.allergies = patientDTO.allergies();
         this.gender = Gender.fromSpanish(patientDTO.gender());

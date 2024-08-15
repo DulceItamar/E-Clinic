@@ -5,10 +5,11 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public record ResponsePatientDataUpdatedDTO(
 
-        Long Id,
+        UUID Id,
 
         String name,
 

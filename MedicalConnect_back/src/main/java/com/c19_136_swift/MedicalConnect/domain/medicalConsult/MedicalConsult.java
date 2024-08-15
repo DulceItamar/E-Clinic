@@ -1,8 +1,8 @@
 package com.c19_136_swift.MedicalConnect.domain.medicalConsult;
 
-import com.c19_136_swift.MedicalConnect.domain.doctor.Doctor;
+import com.c19_136_swift.MedicalConnect.domain.doctor.models.Doctor;
 import com.c19_136_swift.MedicalConnect.domain.medicalConsult.payment.Payment;
-import com.c19_136_swift.MedicalConnect.domain.patient.Patient;
+import com.c19_136_swift.MedicalConnect.domain.patient.model.Patient;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
