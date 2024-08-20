@@ -132,7 +132,7 @@ struct TestData {
         jobDescription: "Hace más de 10 años que practico medicina pediátrica y me apasiona trabajar con niños, poder contribuir a su salud se ha convertido en la pasión de mi vida. Me he especializado en pediatría y luego elegí la cardiología para poder cuidar y curar los corazones del mañana. ¡Gracias por elegirme!",
             workDays: [ WorkDays.monday, WorkDays.tuesday, WorkDays.wednesday],
             services: ["Cardiología pediátrica", "Nefrología pediátrica"],
-            evaluationData: DoctorEvaluationData(
+            servicePrice: 17, evaluationData: DoctorEvaluationData(
                 averageOfEvaluations: 5.0,
                 numberOfConsults: 33,
                 reviews: [
@@ -150,9 +150,9 @@ struct TestData {
                         name: patient3.user.name,
                         evaluation: 5.0,
                         reviewDescription: "La doc fue increíble con mi pequeño, fuimos muy preocupados y ella nos dio la tranquilidad que necesitábamos")
-                
+                    
                 ]
-            ), servicePrice: 17
+            )
         )
         
        
@@ -171,7 +171,7 @@ struct TestData {
             jobDescription: "Con más de 20 años de experiencia en la medicina, he dedicado mi carrera a estudiar y tratar los trastornos del sistema endocrino. Me he especializado en el manejo de diabetes, trastornos tiroideos y otras enfermedades hormonales, con el objetivo de mejorar la calidad de vida de mis pacientes. A través de un enfoque integral y personalizado, me esfuerzo por proporcionar el mejor cuidado posible. ¡Gracias por confiar en mí para tu salud endocrina!",
             workDays: [ WorkDays.monday, WorkDays.thursday, WorkDays.saturday],
             services: ["Neuroendocrinología", "Endocrinología pediátrica"],
-            evaluationData: DoctorEvaluationData(
+            servicePrice: 17, evaluationData: DoctorEvaluationData(
                 averageOfEvaluations: 5.0,
                 numberOfConsults: 33,
                 reviews: [
@@ -189,9 +189,9 @@ struct TestData {
                         name: patient3.user.name,
                         evaluation: 5.0,
                         reviewDescription: "Su enfoque integral y personalizado ha hecho una gran diferencia en mi salud. Además, su equipo siempre es amable y eficiente")
-                
+                    
                 ]
-            ), servicePrice: 17
+            )
         )
         
         self.doctor3 = Doctor(
@@ -209,7 +209,7 @@ struct TestData {
         jobDescription: "Hace más de 10 años que practico medicina pediátrica y me apasiona trabajar con niños, poder contribuir a su salud se ha convertido en la pasión de mi vida. Me he especializado en pediatría y luego elegí la cardiología para poder cuidar y curar los corazones del mañana. ¡Gracias por elegirme!",
             workDays: [ WorkDays.monday, WorkDays.tuesday, WorkDays.wednesday],
             services: ["Cardiología pediátrica", "Nefrología pediátrica"],
-            evaluationData: DoctorEvaluationData(
+            servicePrice: 18, evaluationData: DoctorEvaluationData(
                 averageOfEvaluations: 5.0,
                 numberOfConsults: 33,
                 reviews: [
@@ -227,9 +227,9 @@ struct TestData {
                         name: patient3.user.name,
                         evaluation: 5.0,
                         reviewDescription: "La doc fue increíble con mi pequeño, fuimos muy preocupados y ella nos dio la tranquilidad que necesitábamos")
-                
+                    
                 ]
-            ), servicePrice: 18
+            )
         )
         
         

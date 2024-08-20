@@ -9,11 +9,7 @@ import SwiftUI
 
 @main
 struct MedicalConnectApp: App {
-<<<<<<< HEAD
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-=======
+
     let routeManager = TabRouter()
     let onboardingRouter = OnboardingRouter()
     var body: some Scene {
@@ -21,15 +17,16 @@ struct MedicalConnectApp: App {
             //StartingView()
             
 //            MainTabView(router: TabRouter())
-            MainTabView()
+//            MainTabView()
+//                .environmentObject(routeManager)
+//                .environmentObject(onboardingRouter)
+          //  SignUpView()
+            OnboardingView()
                 .environmentObject(routeManager)
                 .environmentObject(onboardingRouter)
-          //  SignUpView()
-//            OnboardingView()
-//                .environmentObject(routeManager)
             
           
->>>>>>> dev_mobile2
+
         }
     }
 }

@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct StartingView: View {
-    @StateObject private var onboardingManager = OnboardingManager()
-    @State private var nextViewButton: Bool = false
+
+    @Binding  var showStartingView: Bool
+    
     @State private var isLandscape: Bool = UIDevice.current.orientation.isLandscape
     var body: some View {
         
-        NavigationStack {
             VStack(spacing: isLandscape ? 20 : 150) {
                 
                 VStack{
@@ -25,7 +25,12 @@ struct StartingView: View {
                 
 
                 Button(action: {
-                    nextViewButton = true
+                    
+                    withAnimation {
+                        showStartingView = false
+                    }
+                    
+                   
                 }, label: {
                     Text("Comenzar")
                         .padding(.horizontal, 24)
@@ -36,17 +41,14 @@ struct StartingView: View {
                 .padding(.bottom,20)
                
             }
-            .navigationDestination(isPresented: $nextViewButton, destination: {
-                OnboardingView()
-                    .navigationBarBackButtonHidden()
-            })
+
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(content: {
                 LinearGradient(gradient: Gradient(colors:[Color("babyBlue-100"), Color("babyBlue-200")]), startPoint: .top, endPoint: .bottom)
             })
             .ignoresSafeArea()
                 
-        }
+        
         .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification), perform: { _ in
             isLandscape = UIDevice.current.orientation.isLandscape
         })
@@ -54,5 +56,6 @@ struct StartingView: View {
 }
 
 #Preview {
-    StartingView()
+    @State var showView:Bool = true
+    return StartingView(showStartingView: $showView)
 }

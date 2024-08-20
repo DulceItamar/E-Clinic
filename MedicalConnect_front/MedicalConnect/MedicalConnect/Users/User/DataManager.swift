@@ -52,7 +52,7 @@ class UserManager: ObservableObject {
             jobDescription: "",
             workDays: [.monday, .wednesday, .friday],
             services: [""],
-            evaluationData: DoctorEvaluationData(
+            servicePrice: 0.00, evaluationData: DoctorEvaluationData(
                 averageOfEvaluations: 0.0,
                 numberOfConsults: 0,
                 reviews: [Review(
@@ -60,7 +60,7 @@ class UserManager: ObservableObject {
                     evaluation: 0,
                     reviewDescription: "Aún no tiene evaluaciones"
                 )]
-            ), servicePrice: 0.00
+            )
         )
         
         setupValidation()

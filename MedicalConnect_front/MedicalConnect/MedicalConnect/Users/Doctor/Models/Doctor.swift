@@ -79,6 +79,7 @@ extension Doctor: Decodable {
         
         self.evaluationData = try container.decode(DoctorEvaluationData.self, forKey: .evaluationData)
         
+        
 //        let evaluationDoctorContainer  = try container.nestedContainer(keyedBy: evaluationDataCodingKeys.self, forKey: .evaluationData)
         
        
@@ -109,6 +110,7 @@ extension Doctor: Encodable {
         try userContainer.encode(user.password, forKey: .password)
         try userContainer.encode(user.phone, forKey: .phone)
         try userContainer.encode(user.typeOfUser, forKey: .typeUser)
+        
         
         try container.encode(evaluationData, forKey: .evaluationData)
     }

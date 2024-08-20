@@ -19,6 +19,9 @@ class DoctorManager: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     init(
+        
+        
+        
         doctor: Doctor = Doctor(
                         user:User(
                             name: "",
@@ -32,7 +35,7 @@ class DoctorManager: ObservableObject {
                         jobDescription: "",
                         workDays: [.monday, .wednesday, .saturday],
                         services: [""],
-                        evaluationData: DoctorEvaluationData(
+                        servicePrice: 0.00, evaluationData: DoctorEvaluationData(
                             averageOfEvaluations: 0.0,
                             numberOfConsults: 0,
                             reviews: [Review(
@@ -40,7 +43,7 @@ class DoctorManager: ObservableObject {
                                 evaluation: 0,
                                 reviewDescription: "Aún no tiene evaluaciones"
                             )]
-                        ), servicePrice: 0.00)
+                        ))
     ) {
         self.doctor = doctor
         setupValidation()

@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Review: Hashable, Identifiable {
-    let id: UUID = UUID()
+struct Review: Hashable, Identifiable, Codable {
+    var id: UUID = UUID()
     var name: String
     var evaluation: Float
     var reviewDescription: String?

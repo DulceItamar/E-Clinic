@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct DoctorEvaluationData: Hashable, Identifiable {
-    let id: UUID = UUID()
+struct DoctorEvaluationData: Hashable, Identifiable, Codable {
+    var id: UUID = UUID()
     var averageOfEvaluations: Float?
     var numberOfConsults: Int?
     var reviews: [Review]?
