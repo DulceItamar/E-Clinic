@@ -1,3 +1,17 @@
+
+#MacOS
 .DS_Store
+
+# Xcode
 *.xcuserstate
-*.xcuserdata
+*.xcworkspace
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata
+!*.xcworkspace/contents.xcworkspacedata
+!*.xcworkspace/xcshareddata
+
+# Build artifacts
+build/
+DerivedData/
+
