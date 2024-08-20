@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-
+import java.util.UUID;
 
 
 @Entity(name = "MedicalConsult")
@@ -20,8 +20,7 @@ import java.time.LocalDateTime;
 public class MedicalConsult {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private UUID id;
 
     @JoinColumn(name = "doctor_id")
     @ManyToOne(fetch = FetchType.LAZY)

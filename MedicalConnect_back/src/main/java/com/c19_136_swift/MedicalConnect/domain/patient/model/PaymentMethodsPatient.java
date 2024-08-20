@@ -17,7 +17,6 @@ import java.util.UUID;
 public class PaymentMethodsPatient {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     UUID uuid;
     String cardName;
     String cardNumber;

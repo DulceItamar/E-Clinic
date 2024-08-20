@@ -9,8 +9,9 @@ import lombok.Setter;
 
 import java.util.List;
 import java.util.UUID;
+
 @Entity(name = "DoctorEvaluationData")
-@Table(name = "Doctor_Evaluation_Data")
+@Table(name = "doctor_evaluation_data")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -27,6 +28,6 @@ public class DoctorEvaluationData {
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 
-
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL, mappedBy = "evaluationDoctor")
     private List<Review> reviews;
 }

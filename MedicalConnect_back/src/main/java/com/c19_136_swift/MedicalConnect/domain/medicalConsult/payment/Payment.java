@@ -16,7 +16,6 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Payment {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     private Float amount;
     private String paymentMethod;

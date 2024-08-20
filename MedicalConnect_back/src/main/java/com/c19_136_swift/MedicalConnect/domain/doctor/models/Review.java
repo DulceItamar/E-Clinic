@@ -1,9 +1,7 @@
 package com.c19_136_swift.MedicalConnect.domain.doctor.models;
 
 import com.c19_136_swift.MedicalConnect.domain.patient.model.Patient;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,9 +23,11 @@ public class Review {
     private Float evaluation;
     private String reviewDescription;
 
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "patient_id")
     private Patient patient;
 
-    
-    private Doctor doctor;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "doctor_evaluation_id")
+    private DoctorEvaluationData evaluationDoctor;
 }

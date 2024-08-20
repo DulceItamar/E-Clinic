@@ -1,6 +1,6 @@
 create table doctors(
-    id BIGSERIAL PRIMARY KEY,
-    doctor_id UUID not null
+    serial_id SERIAL,
+    id UUID PRIMARY KEY,
     name varchar(120) not null,
     email varchar(100) not null,
     password varchar(300) not null,

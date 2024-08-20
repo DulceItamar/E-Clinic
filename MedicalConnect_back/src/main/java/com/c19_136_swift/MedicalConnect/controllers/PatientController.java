@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/patients")
@@ -29,10 +30,13 @@ public class PatientController {
     @PostMapping
     public ResponseEntity<PatientDataDetailsDTO> signinNewPatient(@RequestBody @Valid SignInPatientDTO patientDTO, UriComponentsBuilder uriComponentsBuilder){
         Patient patient = new Patient(patientDTO);
+        System.out.println("Antes de");
+
         patientRepository.save(patient);
+        System.out.println("Después de");
 
+        PatientDataDetailsDTO dataDetailsDTO = new PatientDataDetailsDTO(patient.getId(), patient.getName(), patient.getEmail(), patient.getBirthdate(), patient.getGender(), patient.getTypeOfUser());
 
-        PatientDataDetailsDTO dataDetailsDTO = new PatientDataDetailsDTO(patient.getId(), patient.getName(), patient.getEmail(), patient.getBirthdate(), patient.getGender());
 
         URI uri = uriComponentsBuilder.path("/patients/{id}").buildAndExpand(patient.getId()).toUri();
         return ResponseEntity.created(uri).body(dataDetailsDTO);
@@ -41,7 +45,7 @@ public class PatientController {
 
     //To get an active patient by its email
     @GetMapping("/by-id")
-    public ResponseEntity<PatientDataDetailsDTO> patientDetailsById( @RequestParam(name = "id")  Long id){
+    public ResponseEntity<PatientDataDetailsDTO> patientDetailsById( @RequestParam(name = "id")  UUID id){
         var patient = patientRepository.findByIdAndActive(id)
                 .orElseThrow(() -> new PatientNotFoundException("Paciente con id "+ id + "no encontrado o no está activo"));
 
@@ -102,7 +106,7 @@ public class PatientController {
     //Logic Delete (Disable Patient)
     @DeleteMapping("/{id}")
     @Transactional
-    public ResponseEntity disablePatientById(@PathVariable Long id ){
+    public ResponseEntity disablePatientById(@PathVariable UUID id ){
         Patient patient = patientRepository.findByIdAndActive(id).orElseThrow(() -> new PatientNotFoundException("Paciente no encontrado."));
         patient.disableUserAccount();
         return ResponseEntity.ok("Paciente deshabilitado");

@@ -1,9 +1,9 @@
 package com.c19_136_swift.MedicalConnect.domain.patient;
 
 public enum Gender {
-    FEMALE("Femenino", "Female"),
-    MALE("Masculino", "Male"),
-    OTHER ("Otro", "Other");
+    FEMALE("Femenino", "female"),
+    MALE("Masculino", "male"),
+    OTHER ("Otro", "other");
     private String getGenderInSpanish;
     private String getGender;
 
@@ -21,7 +21,7 @@ public enum Gender {
         throw new IllegalArgumentException(("Ese género no fue encontrado " + text));
     }
 
-    public static Gender getGender(Gender genderInEnglish){
+    public static Gender getGender(String genderInEnglish){
         for(Gender gender:Gender.values()){
             if (gender.getGender.equals(genderInEnglish)) {
                 return gender;

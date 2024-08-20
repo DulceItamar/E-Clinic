@@ -35,10 +35,13 @@ public class Patient extends User {
 
 
     public Patient(SignInPatientDTO patientDTO){
-        super(patientDTO.uuid(),patientDTO.name(), patientDTO.email(), patientDTO.password(), patientDTO.phoneNumber(), patientDTO.typeOfUser());
+        super(patientDTO.id(),patientDTO.name(), patientDTO.email(), patientDTO.password(), patientDTO.phoneNumber(), patientDTO.typeOfUser());
+
         this.birthdate = patientDTO.birthdate();
         this.allergies = patientDTO.allergies();
-        this.gender = Gender.fromSpanish(patientDTO.gender());
+        this.gender = Gender.getGender(patientDTO.gender());
+        //this.gender = Gender.fromSpanish(patientDTO.gender());
+
     }
 
     public void updateData(UpdatePatientDTO updatePatientDTO){

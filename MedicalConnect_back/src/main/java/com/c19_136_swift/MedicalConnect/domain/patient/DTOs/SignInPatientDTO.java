@@ -11,9 +11,8 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 public record SignInPatientDTO(
-        @NotBlank
-        UUID uuid,
-
+        @NotNull
+        UUID id,
         @NotBlank
         String name,
         @NotBlank
@@ -23,7 +22,7 @@ public record SignInPatientDTO(
         String password,
         @NotNull
         String phoneNumber,
-        @NotBlank
+        @NotNull
         TypeOfUser typeOfUser,
 
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
