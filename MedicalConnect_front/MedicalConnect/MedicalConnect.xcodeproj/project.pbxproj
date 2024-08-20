@@ -7,24 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
-		70CBAA8D2C529ECE008347BE /* MedicalConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CBAA8C2C529ECE008347BE /* MedicalConnectApp.swift */; };
-		70CBAA8F2C529ECE008347BE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CBAA8E2C529ECE008347BE /* ContentView.swift */; };
-		70CBAA912C529ED0008347BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70CBAA902C529ED0008347BE /* Assets.xcassets */; };
-		70CBAA942C529ED0008347BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70CBAA932C529ED0008347BE /* Preview Assets.xcassets */; };
-/* End PBXBuildFile section */
 
-/* Begin PBXFileReference section */
-		70CBAA892C529ECE008347BE /* MedicalConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicalConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		70CBAA8C2C529ECE008347BE /* MedicalConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalConnectApp.swift; sourceTree = "<group>"; };
-		70CBAA8E2C529ECE008347BE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		70CBAA902C529ED0008347BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		70CBAA932C529ED0008347BE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		70CBAA862C529ECE008347BE /* Frameworks */ = {
-=======
 		7005D7912C5B4D2700F6C234 /* Doctor Suffix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7005D7902C5B4D2700F6C234 /* Doctor Suffix.swift */; };
 		7005D7932C5B6FE000F6C234 /* PatientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7005D7922C5B6FE000F6C234 /* PatientManager.swift */; };
 		7005D7952C5B7C0D00F6C234 /* HashTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7005D7942C5B7C0D00F6C234 /* HashTagView.swift */; };
@@ -214,7 +197,7 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		703AE8E12C52A16F007FEC4C /* Frameworks */ = {
->>>>>>> dev_mobile2
+
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -224,20 +207,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-<<<<<<< HEAD
-		70CBAA802C529ECE008347BE = {
-			isa = PBXGroup;
-			children = (
-				70CBAA8B2C529ECE008347BE /* MedicalConnect */,
-				70CBAA8A2C529ECE008347BE /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		70CBAA8A2C529ECE008347BE /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				70CBAA892C529ECE008347BE /* MedicalConnect.app */,
-=======
+
 		702B37452C543941003BF42D /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,20 +385,12 @@
 			isa = PBXGroup;
 			children = (
 				703AE8E42C52A16F007FEC4C /* MedicalConnect.app */,
->>>>>>> dev_mobile2
+
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-		70CBAA8B2C529ECE008347BE /* MedicalConnect */ = {
-			isa = PBXGroup;
-			children = (
-				70CBAA8C2C529ECE008347BE /* MedicalConnectApp.swift */,
-				70CBAA8E2C529ECE008347BE /* ContentView.swift */,
-				70CBAA902C529ED0008347BE /* Assets.xcassets */,
-				70CBAA922C529ED0008347BE /* Preview Content */,
-=======
+
 		703AE8E62C52A16F007FEC4C /* MedicalConnect */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,38 +408,22 @@
 				703AE8EB2C52A172007FEC4C /* Assets.xcassets */,
 				702B37482C543CC8003BF42D /* Fonts */,
 				703AE8ED2C52A172007FEC4C /* Preview Content */,
->>>>>>> dev_mobile2
+
 			);
 			path = MedicalConnect;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-		70CBAA922C529ED0008347BE /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				70CBAA932C529ED0008347BE /* Preview Assets.xcassets */,
-=======
+
 		703AE8ED2C52A172007FEC4C /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
 				703AE8EE2C52A172007FEC4C /* Preview Assets.xcassets */,
->>>>>>> dev_mobile2
+
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-/* End PBXGroup section */
 
-/* Begin PBXNativeTarget section */
-		70CBAA882C529ECE008347BE /* MedicalConnect */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 70CBAA972C529ED0008347BE /* Build configuration list for PBXNativeTarget "MedicalConnect" */;
-			buildPhases = (
-				70CBAA852C529ECE008347BE /* Sources */,
-				70CBAA862C529ECE008347BE /* Frameworks */,
-				70CBAA872C529ECE008347BE /* Resources */,
-=======
 		707154722C5887C40044511C /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -715,7 +661,7 @@
 				703AE8E02C52A16F007FEC4C /* Sources */,
 				703AE8E12C52A16F007FEC4C /* Frameworks */,
 				703AE8E22C52A16F007FEC4C /* Resources */,
->>>>>>> dev_mobile2
+
 			);
 			buildRules = (
 			);
@@ -723,58 +669,40 @@
 			);
 			name = MedicalConnect;
 			productName = MedicalConnect;
-<<<<<<< HEAD
-			productReference = 70CBAA892C529ECE008347BE /* MedicalConnect.app */;
-=======
+
 			productReference = 703AE8E42C52A16F007FEC4C /* MedicalConnect.app */;
->>>>>>> dev_mobile2
+
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-<<<<<<< HEAD
-		70CBAA812C529ECE008347BE /* Project object */ = {
-=======
+
 		703AE8DC2C52A16F007FEC4C /* Project object */ = {
->>>>>>> dev_mobile2
+
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
-<<<<<<< HEAD
-					70CBAA882C529ECE008347BE = {
-=======
+
 					703AE8E32C52A16F007FEC4C = {
->>>>>>> dev_mobile2
+
 						CreatedOnToolsVersion = 15.3;
 					};
 				};
 			};
-<<<<<<< HEAD
-			buildConfigurationList = 70CBAA842C529ECE008347BE /* Build configuration list for PBXProject "MedicalConnect" */;
-			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
-=======
+
 			buildConfigurationList = 703AE8DF2C52A16F007FEC4C /* Build configuration list for PBXProject "MedicalConnect" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = "es-419";
->>>>>>> dev_mobile2
+
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
-<<<<<<< HEAD
-			);
-			mainGroup = 70CBAA802C529ECE008347BE;
-			productRefGroup = 70CBAA8A2C529ECE008347BE /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				70CBAA882C529ECE008347BE /* MedicalConnect */,
-=======
+
 				"es-419",
 			);
 			mainGroup = 703AE8DB2C52A16F007FEC4C;
@@ -783,20 +711,13 @@
 			projectRoot = "";
 			targets = (
 				703AE8E32C52A16F007FEC4C /* MedicalConnect */,
->>>>>>> dev_mobile2
+
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-<<<<<<< HEAD
-		70CBAA872C529ECE008347BE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				70CBAA942C529ED0008347BE /* Preview Assets.xcassets in Resources */,
-				70CBAA912C529ED0008347BE /* Assets.xcassets in Resources */,
-=======
+
 		703AE8E22C52A16F007FEC4C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -806,21 +727,14 @@
 				703AE8EF2C52A172007FEC4C /* Preview Assets.xcassets in Resources */,
 				703AE8EC2C52A172007FEC4C /* Assets.xcassets in Resources */,
 				702B374D2C543D8F003BF42D /* Montserrat-SemiBold.ttf in Resources */,
->>>>>>> dev_mobile2
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-<<<<<<< HEAD
-		70CBAA852C529ECE008347BE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				70CBAA8F2C529ECE008347BE /* ContentView.swift in Sources */,
-				70CBAA8D2C529ECE008347BE /* MedicalConnectApp.swift in Sources */,
-=======
+
 		703AE8E02C52A16F007FEC4C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -910,18 +824,16 @@
 				70FE4F212C572B0800E10A7F /* DoctorDataValidations.swift in Sources */,
 				703A4ED72C55AE5200ECA09B /* ConfigServices.swift in Sources */,
 				70F5D0B62C6433180073BCD6 /* TabRouter.swift in Sources */,
->>>>>>> dev_mobile2
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-<<<<<<< HEAD
-		70CBAA952C529ED0008347BE /* Debug */ = {
-=======
+
 		703AE8F02C52A172007FEC4C /* Debug */ = {
->>>>>>> dev_mobile2
+
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -984,11 +896,9 @@
 			};
 			name = Debug;
 		};
-<<<<<<< HEAD
-		70CBAA962C529ED0008347BE /* Release */ = {
-=======
+
 		703AE8F12C52A172007FEC4C /* Release */ = {
->>>>>>> dev_mobile2
+
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1044,11 +954,9 @@
 			};
 			name = Release;
 		};
-<<<<<<< HEAD
-		70CBAA982C529ED0008347BE /* Debug */ = {
-=======
+
 		703AE8F32C52A172007FEC4C /* Debug */ = {
->>>>>>> dev_mobile2
+
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1059,10 +967,9 @@
 				DEVELOPMENT_TEAM = 5UVUR3L7C9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-<<<<<<< HEAD
-=======
+
 				INFOPLIST_FILE = MedicalConnect/Info.plist;
->>>>>>> dev_mobile2
+
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1081,11 +988,9 @@
 			};
 			name = Debug;
 		};
-<<<<<<< HEAD
-		70CBAA992C529ED0008347BE /* Release */ = {
-=======
+
 		703AE8F42C52A172007FEC4C /* Release */ = {
->>>>>>> dev_mobile2
+
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1096,10 +1001,9 @@
 				DEVELOPMENT_TEAM = 5UVUR3L7C9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-<<<<<<< HEAD
-=======
+
 				INFOPLIST_FILE = MedicalConnect/Info.plist;
->>>>>>> dev_mobile2
+
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1121,45 +1025,31 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-<<<<<<< HEAD
-		70CBAA842C529ECE008347BE /* Build configuration list for PBXProject "MedicalConnect" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				70CBAA952C529ED0008347BE /* Debug */,
-				70CBAA962C529ED0008347BE /* Release */,
-=======
+
 		703AE8DF2C52A16F007FEC4C /* Build configuration list for PBXProject "MedicalConnect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				703AE8F02C52A172007FEC4C /* Debug */,
 				703AE8F12C52A172007FEC4C /* Release */,
->>>>>>> dev_mobile2
+
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-<<<<<<< HEAD
-		70CBAA972C529ED0008347BE /* Build configuration list for PBXNativeTarget "MedicalConnect" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				70CBAA982C529ED0008347BE /* Debug */,
-				70CBAA992C529ED0008347BE /* Release */,
-=======
+
 		703AE8F22C52A172007FEC4C /* Build configuration list for PBXNativeTarget "MedicalConnect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				703AE8F32C52A172007FEC4C /* Debug */,
 				703AE8F42C52A172007FEC4C /* Release */,
->>>>>>> dev_mobile2
+
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-<<<<<<< HEAD
-	rootObject = 70CBAA812C529ECE008347BE /* Project object */;
-=======
+
 	rootObject = 703AE8DC2C52A16F007FEC4C /* Project object */;
->>>>>>> dev_mobile2
+
 }
