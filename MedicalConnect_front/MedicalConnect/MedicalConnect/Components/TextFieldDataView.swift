@@ -19,6 +19,7 @@ struct TextFieldDataView: View {
                 .font(Font.custom("Montserrat-SemiBold", size: 14))
             
             TextField("", text: $data, prompt: Text(prompt))
+                
                 .keyboardType(keyboard)
                 .autocorrectionDisabled()
                 .textFieldStyle(RoundedTextFieldStyle())

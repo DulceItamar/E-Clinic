@@ -10,10 +10,9 @@ import SwiftUI
 struct OnboardingView: View {
     
     @EnvironmentObject private var onboardingRouter : OnboardingRouter
-    @ObservedObject private var validations = OnbordingValidations()
+    @StateObject private var onboardingManager = OnboardingManager()
     
-    @State var email: String = ""
-    @State var password: String = ""
+
     @State private var showStartingView : Bool = true
 
     var body: some View {
@@ -36,11 +35,36 @@ struct OnboardingView: View {
                                         .padding(.vertical, (geometry.size.height * 0.03))
                                     
                                     Group {
-                                        TextFieldDataView(label: "Email", prompt: "ejemplo@email.com", keyboard: .emailAddress, data: $email)
-                                            .padding(.bottom, geometry.size.height * 0.04)
+                                        TextFieldDataView(label: "Email", prompt: "ejemplo@email.com", keyboard: .emailAddress, data: $onboardingManager.email)
+                                            .textInputAutocapitalization(.never)
+                                            .padding(.bottom, geometry.size.height * (onboardingManager.email.isEmpty ? 0.04: 0.01))
+                                            .onChange(of: onboardingManager.email) { _, _ in
+                                                onboardingManager.emailFormatValidation()
+                                            }
                                         
-                                        TextFieldSecurityView(password: $password, label: "Contraseña", prompt: "Tu contraseña aquí...", keyboard: .asciiCapable)
-                                            .padding(.bottom, geometry.size.height * 0.04)
+                                        if !onboardingManager.email.isEmpty{
+                                            LabelValidations(typeOfField: .email, isValid: onboardingManager.isEmailTextValidation())
+                                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                                .padding(.bottom, geometry.size.height * 0.02)
+                                        }
+                                        
+                                        
+                                           
+     
+                                        
+                                        TextFieldSecurityView(password: $onboardingManager.password, label: "Contraseña", prompt: "Tu contraseña aquí...", keyboard: .asciiCapable)
+                                            .padding(.bottom, geometry.size.height * (onboardingManager.password.isEmpty ? 0.04: 0.01))
+                                            
+                                        
+                                        
+                                        if !onboardingManager.password.isEmpty {
+                                            LabelValidations(typeOfField: .password, isValid: onboardingManager.isPasswordTextValidation())
+                                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                                .padding(.bottom, geometry.size.height * 0.04)
+                                            
+                                        }
+                                        
+                                        
                                     }
                                     .padding(.horizontal, 20)
                                     
@@ -55,7 +79,7 @@ struct OnboardingView: View {
                                                 .font(Font.custom("Montserrat-SemiBold", size: 16))
                                                 .kerning(1.2)
                                         })
-                                        .buttonStyle(MainButtonStyle(isEnabled: validations.disableButton))
+                                        .buttonStyle(MainButtonStyle(isEnabled: onboardingManager.availableButton()))
                                         .padding(.bottom, 12)
                                         
                                         Button {

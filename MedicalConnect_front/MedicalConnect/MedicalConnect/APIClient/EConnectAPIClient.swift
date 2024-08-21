@@ -17,7 +17,7 @@ public struct EConnectAPIClient {
         self.parser = parser
     }
     
-    func sendData<T:Encodable>(endpoint: Endpoint, object: T ) async throws{
+    func sendData<T:Encodable>(endpoint: Endpoint, object: T ) async throws {
        
         //Endpoint URL
         
@@ -37,7 +37,7 @@ public struct EConnectAPIClient {
         
         //Send Request and handle request
         do {
-            let dataAndRequest = try  await request.get(request: urlRequest)
+            let _ = try  await request.get(request: urlRequest)
         } catch let error as NetworkError  {
             print("Network error: \(error)")
         } catch {

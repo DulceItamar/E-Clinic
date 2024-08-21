@@ -64,10 +64,11 @@ struct TextFieldSecurityView: View {
     var showSecuredTextField: some View {
    
         TextField("", text: $password, prompt: Text(prompt))
+            .textInputAutocapitalization(.never)
             .keyboardType(keyboard)
             .autocorrectionDisabled()
             .textFieldStyle(RoundedTextFieldStyle())
-            .focused($focusedField, equals: .hidePassword)
+            .focused($focusedField, equals: .showPassword)
 
     }
     

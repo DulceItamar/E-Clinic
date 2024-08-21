@@ -66,8 +66,6 @@ class PatientManager: ObservableObject {
     final func saveUserDataInPatient(userData: User){
         patient.user = userData
         
-        
-        
     }
     
     func sendPatientInfo() async {
