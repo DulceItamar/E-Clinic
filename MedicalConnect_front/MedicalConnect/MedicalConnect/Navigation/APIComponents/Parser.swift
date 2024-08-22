@@ -32,7 +32,9 @@ final class Parser: ParserProtocol {
     
     func parseSendData<T>(_ object: T, encoder: JSONEncoder) -> Data? where T: Encodable {
         do {
+            print("sucess encoder")
             return try encoder.encode(object)
+          
             
         } catch let error as EncodingError {
             printEncodable(error: error)

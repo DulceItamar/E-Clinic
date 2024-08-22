@@ -30,10 +30,10 @@ public class PatientController {
     @PostMapping
     public ResponseEntity<PatientDataDetailsDTO> signinNewPatient(@RequestBody @Valid SignInPatientDTO patientDTO, UriComponentsBuilder uriComponentsBuilder){
         Patient patient = new Patient(patientDTO);
-        System.out.println("Antes de");
+
 
         patientRepository.save(patient);
-        System.out.println("Después de");
+
 
         PatientDataDetailsDTO dataDetailsDTO = new PatientDataDetailsDTO(patient.getId(), patient.getName(), patient.getEmail(), patient.getBirthdate(), patient.getGender(), patient.getTypeOfUser());
 
@@ -44,6 +44,14 @@ public class PatientController {
     }
 
     //To get an active patient by its email
+    @GetMapping("/user")
+    public ResponseEntity<ResponseLoginDTO> patiendDetailsByEmail( @RequestParam(name = "email") String email) {
+        var user = patientRepository.findByEmailAndActive(email).orElseThrow(() -> new PatientNotFoundException("Usuario con email"+ email + "no encontrado o no está activo"));
+        
+        return ResponseEntity.ok(new ResponseLoginDTO(user));
+    }
+
+    //To get an active patient by its id
     @GetMapping("/by-id")
     public ResponseEntity<PatientDataDetailsDTO> patientDetailsById( @RequestParam(name = "id")  UUID id){
         var patient = patientRepository.findByIdAndActive(id)

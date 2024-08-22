@@ -1,6 +1,7 @@
 package com.c19_136_swift.MedicalConnect.domain.patient.DTOs;
 
 import com.c19_136_swift.MedicalConnect.domain.patient.Gender;
+import com.c19_136_swift.MedicalConnect.domain.patient.model.Patient;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotNull;
 
@@ -25,4 +26,5 @@ public record ResponsePatientDataUpdatedDTO(
         Gender gender
 
 ) {
+
 }

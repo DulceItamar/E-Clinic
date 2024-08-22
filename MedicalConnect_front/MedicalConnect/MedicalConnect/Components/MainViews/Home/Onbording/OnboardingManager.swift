@@ -11,11 +11,10 @@ import Combine
 final class OnboardingManager: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
-    @Published var isValidEmail: Bool = false
-    @Published var isValidPassword: Bool = false
-    @Published var disableButton: Bool = false
+
     
     let validations = OnbordingValidations()
+    let client = EConnectAPIClient()
     
     @Published var nextView: Bool = false
     
@@ -23,7 +22,6 @@ final class OnboardingManager: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     
-
     
     final func navigateToNextView() {
         nextView = true
@@ -33,7 +31,6 @@ final class OnboardingManager: ObservableObject {
         _ = validations.isEmailValid(email: email)
         
     }
-    
     
     
     func isEmailTextValidation() -> Bool {
@@ -50,16 +47,10 @@ final class OnboardingManager: ObservableObject {
         
     }
     
-
-    
     
     func passwordValidation() {
         _ = validations.isPasswordValid(password: password)
-        
-
     }
-    
-    
 
     
     func availableButton() -> Bool {
@@ -72,15 +63,45 @@ final class OnboardingManager: ObservableObject {
             return false
         }
     }
-//        Publishers.CombineLatest(
-//            $isValidEmail, $isValidPassword).map { isValidEmail, isValidPassword in
-//                
-//            return isValidEmail && isValidPassword
-//            }
-//            .assign(to: \.disableButton, on: self)
-//            .store(in: &cancellables)
-//
-//    }
+
+
     
+    func sendPatientInfo() async {
+        do {
+            let user = LoginUser(email: email, password: password)
+            let result = try await client.sendData(endpoint: GetLoginUserData(query: [URLQueryItem(name: "email", value: email)]), object: user)
+            
+            switch result {
+                case .success(let success):
+                   let parser = Parser()
+                    print(success)
+                    let patientData = parser.parseReceiveData(success, type: LoginUser.self, decoder: JSONDecoder())
+                    print(patientData as Any)
+                case .failure(let failure):
+                    print(failure)
+            }
+            
+        } catch {
+            print(error)
+        }
+        
+        
+    }
+    
+    
+    func loginUser() async {
+        
+        do {
+            let endpoint = GetLoginUserData(query: [URLQueryItem(name: "email", value: email)])
+            let result = try await client.loginData(endpoint: endpoint)
+            print(result)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+       
+        
+        
+    }
 }
 

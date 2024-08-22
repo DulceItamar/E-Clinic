@@ -24,8 +24,8 @@ class Router {
         
         components?.path = endpoint.path
         components?.queryItems = endpoint.query
-        
 
+        print(components?.url as Any)
         return components?.url
     }
     

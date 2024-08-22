@@ -62,6 +62,13 @@ struct PostSignUpNewPatient: Endpoint {
     
 }
 
+struct GetLoginUserData: Endpoint {
+    var path: String = "/patients/user"
+    var method: HTTPMethod = .GET
+    var query: [URLQueryItem]
+    
+}
+
 
 struct UpdatePatientById: Endpoint {
     var path: String = "/patients"

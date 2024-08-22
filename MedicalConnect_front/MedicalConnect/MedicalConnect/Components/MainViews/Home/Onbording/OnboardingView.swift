@@ -71,7 +71,10 @@ struct OnboardingView: View {
                                     Group {
                                         Button(action: {
                                     
-                                           
+                                            Task {
+                                                    await onboardingManager.loginUser()
+                                                
+                                            }
                                             print("Ingresando ...")
                                         }, label: {
                                             Text("Ingresar")
@@ -84,7 +87,8 @@ struct OnboardingView: View {
                                         
                                         Button {
                                             
-                                         
+                                      
+                                            
                                             onboardingRouter.navigate(for: .signup(.generalForm))
                                             print("Registrarse")
                                         } label: {

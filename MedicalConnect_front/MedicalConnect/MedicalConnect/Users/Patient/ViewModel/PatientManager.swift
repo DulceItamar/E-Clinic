@@ -68,14 +68,14 @@ class PatientManager: ObservableObject {
         
     }
     
-    func sendPatientInfo() async {
-        do {
-            
-            try await client.sendData(endpoint: PostSignUpNewPatient(), object: patient)
-        } catch {
-            print(error)
-        }
-        
-        
-    }
+  //  func sendPatientInfo() async {
+//        do {
+//            
+//            try await client.sendData(endpoint: PostSignUpNewPatient(), object: patient)
+//        } catch {
+//            print(error)
+//        }
+//        
+//        
+//    }
 }

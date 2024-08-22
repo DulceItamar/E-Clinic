@@ -65,6 +65,7 @@
 		7087A1FD2C59DA9300A3CEFB /* AllPatientEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7087A1FC2C59DA9300A3CEFB /* AllPatientEndpoints.swift */; };
 		7087A2012C5A09DD00A3CEFB /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7087A2002C5A09DD00A3CEFB /* Router.swift */; };
 		7087A2032C5A17A600A3CEFB /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7087A2022C5A17A600A3CEFB /* Parser.swift */; };
+		708A6DA32C76B83C004140C1 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A6DA22C76B83C004140C1 /* LoginUser.swift */; };
 		7097070D2C5D47C400CE5376 /* SchedulePayAppoinmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7097070C2C5D47C300CE5376 /* SchedulePayAppoinmentView.swift */; };
 		709707112C5D4A4000CE5376 /* TotalAPagarFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709707102C5D4A4000CE5376 /* TotalAPagarFrameView.swift */; };
 		709707132C5D4DB600CE5376 /* PaymentMethodCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709707122C5D4DB600CE5376 /* PaymentMethodCardView.swift */; };
@@ -162,6 +163,7 @@
 		7087A1FC2C59DA9300A3CEFB /* AllPatientEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllPatientEndpoints.swift; path = MedicalConnect/APIClient/AllPatientEndpoints.swift; sourceTree = SOURCE_ROOT; };
 		7087A2002C5A09DD00A3CEFB /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		7087A2022C5A17A600A3CEFB /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		708A6DA22C76B83C004140C1 /* LoginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
 		7097070C2C5D47C300CE5376 /* SchedulePayAppoinmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulePayAppoinmentView.swift; sourceTree = "<group>"; };
 		709707102C5D4A4000CE5376 /* TotalAPagarFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalAPagarFrameView.swift; sourceTree = "<group>"; };
 		709707122C5D4DB600CE5376 /* PaymentMethodCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodCardView.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				703AE8E92C52A16F007FEC4C /* StartingView.swift */,
 				702B37612C549C9F003BF42D /* SignUpView.swift */,
 				707CB50C2C684FD8004DF65B /* OnboardingManager.swift */,
+				708A6DA22C76B83C004140C1 /* LoginUser.swift */,
 			);
 			name = Onbording;
 			path = Home/Onbording;
@@ -748,6 +751,7 @@
 				70C726452C5ABCBA009FB7B0 /* DataManager.swift in Sources */,
 				709707182C5D59B000CE5376 /* AppointmenManager.swift in Sources */,
 				70D9B5B52C56F18D00E507DD /* TestData.swift in Sources */,
+				708A6DA32C76B83C004140C1 /* LoginUser.swift in Sources */,
 				703AE8EA2C52A16F007FEC4C /* StartingView.swift in Sources */,
 				702B37532C545B34003BF42D /* OnboardingView.swift in Sources */,
 				70205E202C58C7C400B7381B /* MyDataView.swift in Sources */,
