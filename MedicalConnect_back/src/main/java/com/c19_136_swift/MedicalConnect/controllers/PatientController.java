@@ -4,13 +4,16 @@ import com.c19_136_swift.MedicalConnect.domain.patient.DTOs.*;
 import com.c19_136_swift.MedicalConnect.domain.patient.Gender;
 import com.c19_136_swift.MedicalConnect.domain.patient.model.Patient;
 import com.c19_136_swift.MedicalConnect.domain.patient.PatientRepository;
+import com.c19_136_swift.MedicalConnect.infra.errors.APIResponseErrorsDTO;
 import com.c19_136_swift.MedicalConnect.infra.errors.PatientNotFoundException;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -43,12 +46,27 @@ public class PatientController {
 
     }
 
-    //To get an active patient by its email
+    //To get an active patient by its email LOGIN
     @GetMapping("/user")
-    public ResponseEntity<ResponseLoginDTO> patiendDetailsByEmail( @RequestParam(name = "email") String email) {
-        var user = patientRepository.findByEmailAndActive(email).orElseThrow(() -> new PatientNotFoundException("Usuario con email"+ email + "no encontrado o no está activo"));
-        
-        return ResponseEntity.ok(new ResponseLoginDTO(user));
+    public ResponseEntity patiendDetailsByEmail(
+            @RequestParam(name = "email") String email,
+            @RequestParam(name = "password") String password) {
+
+        var user = patientRepository.findByEmailAndActive(email);
+
+        if (user.isEmpty()){
+
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(new APIResponseErrorsDTO("Usuario no registrado o correo incorrecto", HttpStatus.BAD_REQUEST.value()));
+        }
+
+
+        if (!user.get().getPassword().equals(password)){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(new APIResponseErrorsDTO("Contraseña incorrecta", HttpStatus.UNAUTHORIZED.value()));
+        }
+
+        return ResponseEntity.ok(new ResponseLoginDTO(user.get()));
     }
 
     //To get an active patient by its id

@@ -16,8 +16,10 @@ public interface PatientRepository  extends JpaRepository<Patient, UUID> {
             FROM Patient p
             WHERE p.email = :email
             AND p.status = 'ACTIVE'
+    
             """)
-    Optional<Patient> findByEmailAndActive( String email);
+    Optional<Patient> findByEmailAndActive(String email);
+
 
     @Query("""
             SELECT p

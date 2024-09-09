@@ -11,6 +11,8 @@ import Combine
 final class OnboardingManager: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
+    @Published var isLoading = false
+    @Published var errorMessage: String? = nil
 
     
     let validations = OnbordingValidations()
@@ -44,14 +46,13 @@ final class OnboardingManager: ObservableObject {
         let validsPassword = validations.isPasswordValid(password: password)
         
         return validsPassword
-        
     }
     
     
     func passwordValidation() {
         _ = validations.isPasswordValid(password: password)
     }
-
+    
     
     func availableButton() -> Bool {
         let validPassword = validations.isPasswordValid(password: password)
@@ -63,8 +64,7 @@ final class OnboardingManager: ObservableObject {
             return false
         }
     }
-
-
+    
     
     func sendPatientInfo() async {
         do {
@@ -75,7 +75,8 @@ final class OnboardingManager: ObservableObject {
                 case .success(let success):
                    let parser = Parser()
                     print(success)
-                    let patientData = parser.parseReceiveData(success, type: LoginUser.self, decoder: JSONDecoder())
+                    let jsonDecoder = JSONDecoder()
+                    let patientData = parser.parseReceiveData(success, type: LoginUser.self, decoder: jsonDecoder)
                     print(patientData as Any)
                 case .failure(let failure):
                     print(failure)
@@ -90,18 +91,58 @@ final class OnboardingManager: ObservableObject {
     
     
     func loginUser() async {
+       
+        guard !isLoading else { return }
+        defer {
+            isLoading = false
+            
+        }
+        isLoading = true
         
         do {
-            let endpoint = GetLoginUserData(query: [URLQueryItem(name: "email", value: email)])
+            let endpoint = GetLoginUserData(query: [URLQueryItem(name: "email", value: email), URLQueryItem(name: "password", value: password)])
             let result = try await client.loginData(endpoint: endpoint)
-            print(result)
+            
+            switch result {
+                case .success(let data):
+                    let jsonDecoder = JSONDecoder()
+                    guard let user = client.parser.parseReceiveData(data, type: LoginUser.self, decoder: jsonDecoder) else { 
+                       
+                        throw URLError(.badURL)
+                    }
+                    
+                    let userSession = UserSession.shared
+                    userSession.updateSession(with: user)
+                    
+                    print("Authenticated user: \(user)")
+                    
+                    
+                case .failure(let error):
+                    
+                    client.parser.printDecodable(error: error)
+         
+                    
+                    throw error
+            }
+
+           
         } catch {
+            
             print(error.localizedDescription)
+          
+            
+            
+            errorMessage = String(describing: error)
         }
         
        
         
         
     }
+    
+    
+
 }
+
+
 

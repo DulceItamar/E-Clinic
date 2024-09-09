@@ -17,6 +17,7 @@
 		70205E262C58CDB800B7381B /* MyMedicalRecordsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70205E252C58CDB800B7381B /* MyMedicalRecordsHistory.swift */; };
 		70205E282C58CE9900B7381B /* AppointmentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70205E272C58CE9900B7381B /* AppointmentCardView.swift */; };
 		70220A452C56281100ADAA7B /* ProfileDocView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70220A442C56281100ADAA7B /* ProfileDocView.swift */; };
+		7029C6102C8C1883000CE392 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7029C60F2C8C1883000CE392 /* UserSession.swift */; };
 		702B37472C543B3E003BF42D /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 702B37462C543B3D003BF42D /* Montserrat-Regular.ttf */; };
 		702B374B2C543D84003BF42D /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 702B374A2C543D84003BF42D /* Montserrat-Bold.ttf */; };
 		702B374D2C543D8F003BF42D /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 702B374C2C543D8F003BF42D /* Montserrat-SemiBold.ttf */; };
@@ -113,6 +114,7 @@
 		70205E252C58CDB800B7381B /* MyMedicalRecordsHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMedicalRecordsHistory.swift; sourceTree = "<group>"; };
 		70205E272C58CE9900B7381B /* AppointmentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppointmentCardView.swift; path = MedicalConnect/Users/Patient/View/AppointmentCardView.swift; sourceTree = SOURCE_ROOT; };
 		70220A442C56281100ADAA7B /* ProfileDocView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDocView.swift; sourceTree = "<group>"; };
+		7029C60F2C8C1883000CE392 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		702B37462C543B3D003BF42D /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		702B37492C543D5F003BF42D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		702B374A2C543D84003BF42D /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
@@ -313,6 +315,14 @@
 			path = Validations;
 			sourceTree = "<group>";
 		};
+		703714D12C8E542C003F6B03 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				70760D022C6B13C100BE8B60 /* NetworkError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		703A4ED52C55AE0E00ECA09B /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +355,7 @@
 				702B37612C549C9F003BF42D /* SignUpView.swift */,
 				707CB50C2C684FD8004DF65B /* OnboardingManager.swift */,
 				708A6DA22C76B83C004140C1 /* LoginUser.swift */,
+				7029C60F2C8C1883000CE392 /* UserSession.swift */,
 			);
 			name = Onbording;
 			path = Home/Onbording;
@@ -406,6 +417,7 @@
 		703AE8E62C52A16F007FEC4C /* MedicalConnect */ = {
 			isa = PBXGroup;
 			children = (
+				703714D12C8E542C003F6B03 /* Error */,
 				7097070E2C5D498800CE5376 /* Consult */,
 				70C7263C2C5A9F0F009FB7B0 /* Navigation */,
 				7087A1F32C59CC5700A3CEFB /* APIClient */,
@@ -554,7 +566,6 @@
 				7087A1F42C59D5B400A3CEFB /* Endpoint.swift */,
 				7087A2002C5A09DD00A3CEFB /* Router.swift */,
 				7087A2022C5A17A600A3CEFB /* Parser.swift */,
-				70760D022C6B13C100BE8B60 /* NetworkError.swift */,
 				70760D002C6B0C9000BE8B60 /* Request.swift */,
 			);
 			name = APIComponents;
@@ -781,6 +792,7 @@
 				70FBEF432C54C2D2004FDA53 /* UserSignupFormView.swift in Sources */,
 				7097070D2C5D47C400CE5376 /* SchedulePayAppoinmentView.swift in Sources */,
 				7087A1FD2C59DA9300A3CEFB /* AllPatientEndpoints.swift in Sources */,
+				7029C6102C8C1883000CE392 /* UserSession.swift in Sources */,
 				702B375F2C548FAA003BF42D /* SignInWithAppleButtonStyle.swift in Sources */,
 				70FBEF552C54E640004FDA53 /* SearchBarView.swift in Sources */,
 				702B37552C546911003BF42D /* TextFieldDataView.swift in Sources */,

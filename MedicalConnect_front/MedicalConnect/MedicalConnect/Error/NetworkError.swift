@@ -10,9 +10,20 @@ import SwiftUI
 
 
 
-
 enum NetworkError: Error {
     case badRequest
     case ServerError
     case unknown
+    
+    
+  
+}
+
+
+
+
+
+struct APIErrorResponse: Decodable {
+    let message: String
+    let statusCode: Int
 }

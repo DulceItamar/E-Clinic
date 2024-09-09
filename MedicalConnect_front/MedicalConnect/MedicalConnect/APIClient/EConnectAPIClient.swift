@@ -50,20 +50,10 @@ public struct EConnectAPIClient {
     
     
     
-    func loginData(endpoint: Endpoint) async throws -> LoginUser {
+    func loginData(endpoint: Endpoint) async throws -> Result<Data,Error> {
         let result = try await fetchData(endpoint: endpoint)
         
-        switch result {
-            case .success(let data):
-                guard let decodeData = parser.parseReceiveData(data, type: LoginUser.self, decoder: JSONDecoder()) else { throw URLError(.badURL)  }
-                
-                print(decodeData as Any)
-                return decodeData
-                
-            case .failure(let error):
-                parser.printDecodable(error: error)
-                throw error
-        }
+        return result
 
     }
     
@@ -82,11 +72,11 @@ public struct EConnectAPIClient {
         do {
             return try await request.get(request: urlRequest)
         } catch let error as NetworkError {
-            print("Network error: \(error)")
+            print("Network error: \(error.localizedDescription)")
             return .failure(error)
             
         } catch {
-            print(error.localizedDescription)
+           
             return .failure(error)
         }
         

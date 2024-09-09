@@ -19,6 +19,8 @@ final class Request: APIRequestProtocol {
     func get(request: URLRequest) async throws -> Result<Data, any Error> {
        
         let (data, response) = try await URLSession.shared.data(for: request)
+        
+        
         return verifyResponse(data: data, response: response)
         
     }
@@ -30,10 +32,13 @@ final class Request: APIRequestProtocol {
             return .failure(NetworkError.unknown)
         }
         
+        
+        print("Estatus code: \(httpResponse.statusCode)")
         switch httpResponse.statusCode {
             case 200...299:
                 return .success(data)
             case 400...499:
+          
                 return .failure(NetworkError.badRequest)
             case 500...599:
                 return .failure(NetworkError.ServerError)
@@ -41,6 +46,8 @@ final class Request: APIRequestProtocol {
                 return .failure(NetworkError.unknown)
         }
     }
+    
+
 }
 
 
