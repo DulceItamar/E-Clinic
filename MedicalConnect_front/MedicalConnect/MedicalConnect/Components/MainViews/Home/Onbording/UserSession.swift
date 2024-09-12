@@ -7,15 +7,18 @@
 
 import Foundation
 
-final class UserSession {
+final class UserSession: ObservableObject {
     
     static let shared = UserSession()
-    var currentUser: LoginUser? = nil
-    var isLoggedIn: Bool = false
+    var currentUser: LoginRequest? = nil
+   @Published var isLoggedIn: Bool = false
     
     private init() {}
     
-    func updateSession(with user: LoginUser) {
+    
+    
+    
+    func startSession(with user: LoginRequest) {
         
         self.currentUser = user
         self.isLoggedIn = true

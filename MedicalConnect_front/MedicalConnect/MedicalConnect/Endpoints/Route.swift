@@ -102,7 +102,8 @@ extension ExternalRoutes: View {
     var body: some View {
         switch self {
             case .login:
-                 EmptyView()
+                 //EmptyView()
+                MainTabView(selectedTabView: .home)
             case .signup(let route):
                 switch route{
                     case .generalForm:

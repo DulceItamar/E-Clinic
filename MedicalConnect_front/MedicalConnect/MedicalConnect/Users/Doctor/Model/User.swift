@@ -7,8 +7,7 @@
 
 import Foundation
 
-protocol UserProtocol: Identifiable, Hashable {
-    var id: UUID { get }
+protocol UserProtocol: Hashable {
     var name: String { get }
     var email: String { get }
     var password: String { get }
@@ -17,7 +16,7 @@ protocol UserProtocol: Identifiable, Hashable {
 }
 
 struct User: UserProtocol {
-    var id: UUID = UUID()
+ 
     var name: String
     var email: String
     var password: String

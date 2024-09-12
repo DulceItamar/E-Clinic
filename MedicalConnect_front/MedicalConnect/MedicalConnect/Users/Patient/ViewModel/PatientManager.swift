@@ -26,7 +26,7 @@ class PatientManager: ObservableObject {
                 phone: "",
                 typeOfUser: .patient
             ),
-            photo: nil,
+           
             birthdate: Date(),
             allergies: "",
             gender: .FEMALE

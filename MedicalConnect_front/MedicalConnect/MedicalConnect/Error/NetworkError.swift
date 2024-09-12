@@ -6,24 +6,32 @@
 //
 
 import Foundation
-import SwiftUI
 
 
 
-enum NetworkError: Error {
+
+enum NetworkError: Error, LocalizedError {
+    
+    case missingRequieredFields(String)
+    case invalidParameters(operation: String, parameters: [Any])
     case badRequest
-    case ServerError
-    case unknown
-    
-    
+    case unauthorized
+    case paymentRequiered
+    case forbidden
+    case notFound
+    case requestEntityTooLarge
+    case unprocessableEntity
+    case http(httpeResponse: HTTPURLResponse, data: Data)
+    case invalidResponse(Data)
+    case deleteOperationFailed(String)
+    case network(URLError)
+    case unknown(Error?)
+    case badURL(String)
+    case encodingError(String)
+    case decodingError(String)
+    case badServerResponse
+
   
 }
 
 
-
-
-
-struct APIErrorResponse: Decodable {
-    let message: String
-    let statusCode: Int
-}

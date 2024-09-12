@@ -10,6 +10,7 @@ import SwiftUI
 struct StartingView: View {
 
     @Binding  var showStartingView: Bool
+    @State private var opacity: Double = 1.0
     
     @State private var isLandscape: Bool = UIDevice.current.orientation.isLandscape
     var body: some View {
@@ -26,10 +27,14 @@ struct StartingView: View {
 
                 Button(action: {
                     
-                    withAnimation {
-                        showStartingView = false
+                    withAnimation(.easeOut(duration: 0.30)) {
+                        opacity = 0.0
+                        
                     }
                     
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.30) {
+                        showStartingView = false
+                    }
                    
                 }, label: {
                     Text("Comenzar")

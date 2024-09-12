@@ -19,7 +19,7 @@ class Router {
     func routedEndpoint(_ endpoint: Endpoint, url : AppEnvironment.Base) -> URL? {
        
         let baseURL = environment.getURL(api: url)
-        
+        print("This is the url: \(url)")
         var components = URLComponents(string: baseURL)
         
         components?.path = endpoint.path

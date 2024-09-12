@@ -25,7 +25,7 @@ struct TextFieldSecurityView: View {
             
             ZStack(alignment: .trailing) {
                 
-                if !showPassword {
+                if showPassword {
                     showSecuredTextField
                    
                 } else {
@@ -36,7 +36,7 @@ struct TextFieldSecurityView: View {
                 Button {
                     performToggle()
                 } label: {
-                    Image(systemName: self.showPassword ? "eye.slash" : "eye")
+                    Image(systemName: self.showPassword ? "eye" : "eye.slash")
                         
                 }
                 .tint(.gray)

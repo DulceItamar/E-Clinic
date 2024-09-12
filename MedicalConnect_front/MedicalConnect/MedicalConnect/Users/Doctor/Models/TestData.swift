@@ -33,8 +33,6 @@ struct TestData {
                 phone: "075 871 61 23",
                 typeOfUser: .patient
             ),
-            
-            photo: nil,
             birthdate: Date(),
             allergies: "Penicilina",
             gender: .FEMALE,
@@ -65,8 +63,6 @@ struct TestData {
                 
                 
             ),
-            
-            photo: nil,
             birthdate: Date(),
             allergies: "Triaxona",
             gender: .MALE,
@@ -95,8 +91,6 @@ struct TestData {
                 phone: "967-825-265",
                 typeOfUser: .patient
             ),
-            
-            photo: nil,
             birthdate: Date(),
             allergies: "Penicilina",
             gender: .FEMALE,

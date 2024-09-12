@@ -17,17 +17,21 @@ public struct EConnectAPIClient {
         self.parser = parser
     }
     
-    func sendData<T:Encodable>(endpoint: Endpoint, object: T ) async throws -> Result<Data, Error> {
+    func sendData<T:Encodable>(endpoint: Endpoint, object: T ) async throws -> Data? {
        
         //Endpoint URL
         
         guard let uri = router.routedEndpoint(endpoint, url: .local) else {
-            throw URLError(.badURL)
+            //throw URLError(.badURL)
+            throw NetworkError.badURL("Failed to route endppoint \(endpoint)")
         }
         
        
         //Swift Object to JSON
-        let jsonData = parser.parseSendData(object, encoder: JSONEncoder())
+        let jsonEncoder = JSONEncoder()
+        guard let jsonData =  parser.parseSendData(object, encoder: jsonEncoder) else {
+            throw NetworkError.encodingError("Failed to encode object")
+        }
             
         //Build Request
         var urlRequest = URLRequest(url: uri)
@@ -40,27 +44,29 @@ public struct EConnectAPIClient {
             return try await request.get(request: urlRequest)
         } catch let error as NetworkError  {
             print("Network error: \(error)")
-            return .failure(error)
+            throw error
+           
         } catch {
-            print(error.localizedDescription)
-            return .failure(error)
+            print("Unexpected error: \(error.localizedDescription) ")
+            throw error
         }
-
     }
     
     
     
-    func loginData(endpoint: Endpoint) async throws -> Result<Data,Error> {
-        let result = try await fetchData(endpoint: endpoint)
+    func loginData(endpoint: Endpoint) async throws -> Data? {
+        guard let result = try await fetchData(endpoint: endpoint) else {
+            throw NetworkError.unprocessableEntity
+        }
         
         return result
 
     }
     
-   private func fetchData(endpoint: Endpoint) async throws -> Result<Data, Error>  {
+   private func fetchData(endpoint: Endpoint) async throws -> Data? {
         
         // Endpoint
-        guard let uri = router.routedEndpoint(endpoint, url: .local) else {
+       guard let uri = router.routedEndpoint(endpoint, url: .test) else {
             throw URLError(.badURL)
         }
         
@@ -73,13 +79,13 @@ public struct EConnectAPIClient {
             return try await request.get(request: urlRequest)
         } catch let error as NetworkError {
             print("Network error: \(error.localizedDescription)")
-            return .failure(error)
+          
             
         } catch {
-           
-            return .failure(error)
+            print(error.localizedDescription)
         }
-        
+       
+        return nil
     }
 }
 

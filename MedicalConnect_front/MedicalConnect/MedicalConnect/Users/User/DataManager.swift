@@ -44,7 +44,7 @@ class UserManager: ObservableObject {
         )
     ) {
         self.user = user
-        self.patient = Patient(user: user, photo: nil, birthdate: Date(), allergies: "", gender: .FEMALE)
+        self.patient = Patient(user: user, birthdate: Date(), allergies: "", gender: .FEMALE)
         self.doctor = Doctor(
             user: user,
             medicalSpeciality: .cardiology,

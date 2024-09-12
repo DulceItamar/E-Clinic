@@ -69,7 +69,7 @@ extension Doctor: Decodable {
         
         let userContainer = try container.nestedContainer(keyedBy: UserCodingKeys.self, forKey: .user)
         self.user = User(
-            id: try userContainer.decode(UUID.self, forKey: .id),
+            
             name: try userContainer.decode(String.self, forKey: .name),
             email: try userContainer.decode(String.self, forKey: .email),
             password: try userContainer.decode(String.self, forKey: .password),
@@ -104,7 +104,7 @@ extension Doctor: Encodable {
         try container.encode(servicePrice, forKey: .servicePrice)
         
         var userContainer = container.nestedContainer(keyedBy: UserCodingKeys.self, forKey: .user)
-        try userContainer.encode(user.id, forKey: .id)
+    
         try userContainer.encode(user.name, forKey: .name)
         try userContainer.encode(user.email, forKey: .email)
         try userContainer.encode(user.password, forKey: .password)

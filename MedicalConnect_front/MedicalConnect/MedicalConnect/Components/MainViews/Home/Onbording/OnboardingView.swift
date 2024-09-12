@@ -8,7 +8,7 @@ import SwiftUI
 struct OnboardingView: View {
     
     @EnvironmentObject private var onboardingRouter : OnboardingRouter
-    @StateObject private var onboardingManager = OnboardingManager()
+    @ObservedObject private var onboardingManager = LoginViewModel()
     
     
     @State private var showStartingView : Bool = true
@@ -61,22 +61,26 @@ struct OnboardingView: View {
                             
                             Group {
                                 
-//                                Text("Usuario no autenticado")
-//                                    .foregroundStyle(.red)
-//                                    .padding(.bottom, geometry.size.height * 0.04)
+//
                                 if let errorMessage = onboardingManager.errorMessage {
                                     Text(errorMessage)
                                         .foregroundStyle(.red)
                                         .padding(.bottom, geometry.size.height * 0.04)
                                 }
                                 
+                             
+                                
                                 Button(action: {
                                     
-                                    Task {
-                                        await onboardingManager.loginUser()
+                                    onboardingManager.login()
+                                    
+                                    
+                                    if Auth.shared.loggedIn {
+                                        onboardingRouter.navigate(for: .login)
                                         
+                                        print("Ingresando ...")
                                     }
-                                    print("Ingresando ...")
+                                    
                                 }, label: {
                                     Text("Ingresar")
                                         .padding(.horizontal, 24)
