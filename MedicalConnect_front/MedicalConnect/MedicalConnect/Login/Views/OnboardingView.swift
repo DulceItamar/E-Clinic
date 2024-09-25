@@ -133,6 +133,7 @@ struct OnboardingView: View {
                                             onboardingManager.navigateToNextView(onboardingRouter: onboardingRouter, login: .GoogleAuth)
                                             print("Registrarse con Google")
                                         } else {
+                                       
                                             print("Error durante el inicio de sesión con Google")
                                         }
                                     }
@@ -169,6 +170,7 @@ struct OnboardingView: View {
                     ProgressView()
                         .tint(.babyBlue300)
                         .scaleEffect(2)
+                       // .delayAppeareance(bySeconds: 1.0)
                 }
             }
             //Present the full-screen starting view

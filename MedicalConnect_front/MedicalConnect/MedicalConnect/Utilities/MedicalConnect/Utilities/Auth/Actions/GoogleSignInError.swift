@@ -14,6 +14,7 @@ enum GoogleSignInError: Error, LocalizedError {
     case idTokenNotFound
     case userProfileNotFound
     case firebaseAuthenticationFailed
+    case signInCancelled
     
     var errorDescription: String?{
         switch self {
@@ -29,6 +30,8 @@ enum GoogleSignInError: Error, LocalizedError {
                 return "No se pudo obtener el perfil del usuario"
             case .firebaseAuthenticationFailed:
                 return "No se pudo autenticar el usuario con Firebase"
+            case .signInCancelled:
+                return "Autenticación cancelada por el usuario"
         }
     }
 }

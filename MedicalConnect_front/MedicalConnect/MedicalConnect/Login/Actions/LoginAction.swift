@@ -3,8 +3,8 @@
 /// It handles errors as bad URL construction, failed request body encoding, and response decoding. The use of asynchronous functions ensures non-blocking network operations, which is essential for responsive applications.
 ///
 /// - Parameters:
-///     - parameters: It's a LoginRequest type, which holds the necessary login request data.
-///     - appEnvironment: It's a Singleton to share an access to AppEnvironment. AppEnvironment contains configuration settings like URLs for diferentr environments (testing, prod)
+///   - parameters: It's a LoginRequest type, which holds the necessary login request data.
+///   - appEnvironment: It's a Singleton to share an access to AppEnvironment. AppEnvironment contains configuration settings like URLs for diferentr environments (testing, prod)
 
 import Foundation
 

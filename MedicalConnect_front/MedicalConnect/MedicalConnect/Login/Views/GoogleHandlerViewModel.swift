@@ -22,6 +22,8 @@ final class GoogleHandlerViewModel: ObservableObject {
     
     func googleSignIn(completion: @escaping (Result<AuthDataResult?, GoogleSignInError>) -> Void ) {
         googleAuth.completeGoogleSignInHandler {  (result: Result<AuthDataResult?, GoogleSignInError>) in
+            
+            
             switch result {
                 case .success(let authResult):
                     
@@ -30,9 +32,13 @@ final class GoogleHandlerViewModel: ObservableObject {
                         return
                     }
                     
+                    
                     completion(.success(validResult))
                    
                 case .failure(let error):
+                
+                    completion(.failure(error))
+                
                     print("Error durante la autenticación: \(error.localizedDescription)")
             }
         }

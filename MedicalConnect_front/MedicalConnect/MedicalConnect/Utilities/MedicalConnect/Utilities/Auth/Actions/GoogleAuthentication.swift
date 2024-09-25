@@ -20,49 +20,8 @@ final class GoogleAuthentication {
    
    static let shared = GoogleAuthentication()
 
-   
-//    func completeGoogleSignIn(completion: @escaping (Result<GIDGoogleUser?, GoogleSignInError>) -> Void) {
-//        
-//        
-//        
-//        //Start the sign in flow with Google
-//        signUpWithGoogle { [unowned self ] result, error in
-//         
-// 
-//            guard let result = result else { return }
-//            
-//            
-//        }
-//        
-//        
-////        signUpWithGoogle { [unowned self ] user, error in
-////            guard let user = user else { return }
-////            
-////            if let error = error {
-////                completion(nil, error)
-////                return
-////            }
-////            
-////            
-////            //User authentication in Firebase
-////            authenticateUser(for: user, with: error) { [self] authResult in
-////                switch authResult {
-////                    case .success( _):
-////                        completion(authResult, error)
-//////                        if let result = authResult {
-//////                            completion(authResult, nil)
-//////                        } else {
-//////                            completion(nil, GoogleSignInError.signInFailed)
-//////                        }
-////                    case .failure(let error):
-////                        completion(nil, error)
-////                }
-////            }
-////        }
-//        
-//    }
-    
-    
+
+
     private func signUpWithGoogle(completion: @escaping (GIDGoogleUser?,GoogleSignInError?) -> Void ){
         
         //Get app client id
@@ -81,15 +40,20 @@ final class GoogleAuthentication {
         }
         
         
+        
         //Starting the sign in flow
         GIDSignIn.sharedInstance.configuration = config
         
         GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController) { signInResult, error in
             
             if let error = error {
+                //Handle error of explicit cancel
+                if (error as NSError).code == GIDSignInError.canceled.rawValue {
+                    completion(nil, .signInCancelled)
+                }
                 completion(nil,error as? GoogleSignInError)
             }
-            
+
             if let result = signInResult {
                 completion(result.user, nil)
             } else {
@@ -143,6 +107,11 @@ final class GoogleAuthentication {
        
    }
     
+    
+    
+    
+    
+   
     
     func completeGoogleSignInHandler(completion: @escaping (Result<AuthDataResult?, GoogleSignInError>) -> Void) {
         

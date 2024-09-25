@@ -50,6 +50,7 @@
 		703AE8EC2C52A172007FEC4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 703AE8EB2C52A172007FEC4C /* Assets.xcassets */; };
 		703AE8EF2C52A172007FEC4C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 703AE8EE2C52A172007FEC4C /* Preview Assets.xcassets */; };
 		7050641F2C990D6E001E2D04 /* TypeOfAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7050641E2C990D6E001E2D04 /* TypeOfAuth.swift */; };
+		70549F152CA4952A00EC3284 /* DelayApperanceModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70549F142CA4952A00EC3284 /* DelayApperanceModifier.swift */; };
 		70645B762C5C362800195C96 /* DoctorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70645B752C5C362800195C96 /* DoctorManager.swift */; };
 		706EA8B32C768468008EC09C /* LabelValidations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706EA8B22C768468008EC09C /* LabelValidations.swift */; };
 		706F32BC2C9A623100240558 /* GoogleAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706F32BB2C9A623100240558 /* GoogleAuthentication.swift */; };
@@ -182,6 +183,7 @@
 		703AE8EB2C52A172007FEC4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		703AE8EE2C52A172007FEC4C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7050641E2C990D6E001E2D04 /* TypeOfAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfAuth.swift; sourceTree = "<group>"; };
+		70549F142CA4952A00EC3284 /* DelayApperanceModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayApperanceModifier.swift; sourceTree = "<group>"; };
 		70645B752C5C362800195C96 /* DoctorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorManager.swift; sourceTree = "<group>"; };
 		706EA8B22C768468008EC09C /* LabelValidations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LabelValidations.swift; path = MedicalConnect/Users/Patient/Validations/LabelValidations.swift; sourceTree = SOURCE_ROOT; };
 		706F32BB2C9A623100240558 /* GoogleAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthentication.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				70FBEF542C54E640004FDA53 /* SearchBarView.swift */,
 				70D55B4B2C5568FD0025D84D /* HeaderView.swift */,
 				703AE8BF2CA2042E006640F4 /* GoogleUserDataFrameView.swift */,
+				70549F142CA4952A00EC3284 /* DelayApperanceModifier.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1054,6 +1057,7 @@
 				703A4EDE2C55C9BC00ECA09B /* Doctor.swift in Sources */,
 				70205E222C58C9A500B7381B /* MyAppointmentsHistoryView.swift in Sources */,
 				702B37592C54807E003BF42D /* SecurityFieldTextFieldData.swift in Sources */,
+				70549F152CA4952A00EC3284 /* DelayApperanceModifier.swift in Sources */,
 				70D55B4C2C5568FD0025D84D /* HeaderView.swift in Sources */,
 				7087A1F72C59D8CC00A3CEFB /* AppEnvironment.swift in Sources */,
 				707154712C587D960044511C /* CelendarView.swift in Sources */,
@@ -1177,9 +1181,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 5UVUR3L7C9;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1241,9 +1247,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 5UVUR3L7C9;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
