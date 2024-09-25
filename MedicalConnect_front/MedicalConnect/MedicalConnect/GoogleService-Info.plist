@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>515675511585-g0g0digckf1undm6d9p7ktgnst5utv75.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.515675511585-g0g0digckf1undm6d9p7ktgnst5utv75</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD0zgfb5WxyrGBDJlR01v7vsbUNrOYFN7A</string>
+	<key>GCM_SENDER_ID</key>
+	<string>515675511585</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.DulceVigueras.MedicalConnect</string>
+	<key>PROJECT_ID</key>
+	<string>eclinic-b6356</string>
+	<key>STORAGE_BUCKET</key>
+	<string>eclinic-b6356.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:515675511585:ios:7c930ae931d41c52a5fc60</string>
+</dict>
+</plist>

@@ -74,7 +74,7 @@ struct HomeView: View {
 
 
 #Preview {
-    @State var path: NavigationPath = .init()
+    @Previewable @State var path: NavigationPath = .init()
     return HomeView()
         .environmentObject(TabRouter())
 }

@@ -39,6 +39,6 @@ struct PaymentMethodCardView: View {
 
 #Preview {
 
-    @State var checked : Bool = false
+    @Previewable @State var checked : Bool = false
     return PaymentMethodCardView(paymentName: "Mastercard 1454", checked: $checked)
 }

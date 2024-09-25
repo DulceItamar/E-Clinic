@@ -154,10 +154,10 @@ struct TagView: View {
 
 #Preview {
     
-    @State var tagText: String = ""
-    @State var Allservices: [String] = []
+    @Previewable @State var tagText: String = ""
+    @Previewable @State var Allservices: [String] = []
     
-    return TagView(services: $Allservices, tagText: $tagText)
+     TagView(services: $Allservices, tagText: $tagText)
 }
 
 

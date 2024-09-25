@@ -53,7 +53,7 @@ struct MyProfileView: View {
 }
 
 #Preview {
-    @State var route = NavigationPath()
+    @Previewable @State var route = NavigationPath()
     return MyProfileView()
         .environmentObject(TabRouter())
 }

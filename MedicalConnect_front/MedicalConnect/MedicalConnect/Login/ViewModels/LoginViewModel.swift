@@ -7,16 +7,23 @@
 
 import Foundation
 import Combine
+import GoogleSignIn
+import FirebaseAuth
+import Firebase
+import FirebaseCore
 
-final class LoginViewModel: ObservableObject {
+ class LoginViewModel: ObservableObject {
+     
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var isLoading = false
     @Published var errorMessage: String? = nil
     @Published var nextView: Bool = false
+     
+  
     
     let validations = OnbordingValidations()
-    let client = EConnectAPIClient()
+ //   let client = EConnectAPIClient()
     
     
     
@@ -55,8 +62,8 @@ final class LoginViewModel: ObservableObject {
     
     
     func availableButton() -> Bool {
-        let validPassword = validations.isPasswordValid(password: password)
-        let validEmail = validations.isEmailValid(email: email)
+        let validPassword = validations.isPasswordValid(password: self.password)
+        let validEmail = validations.isEmailValid(email: self.email)
         
         if (validEmail && validPassword) {
             return true
@@ -68,36 +75,35 @@ final class LoginViewModel: ObservableObject {
     
     
     @MainActor
-    func login() {
-    
+    func loginWithEmail() {
+        
         
         guard !isLoading else { return }
              
         isLoading = true
         errorMessage = nil
-    
+        
         
         Task {
             do {
                 
                 let loginRequest = LoginRequest(email: email, password: password)
                 
-                let response = try await LoginAction(
-                    parameters: loginRequest
-                ).call()
+                let response = try await LoginAction(parameters: loginRequest).call()
+                
+
                 
                 let accessToken = response.data.accessToken
                 let refreshToken = response.data.refreshToken
                 
-                try Auth.shared.setCredentials(
+                try KeychainAccessAuth.shared.setCredentials(
                     accessToken: accessToken,
                     refreshToken: refreshToken
                 )
                 
-                if Auth.shared.loggedIn {
+                if KeychainAccessAuth.shared.loggedIn {
                     UserSession.shared.startSession(with: loginRequest)
                 }
-                
             } catch {
                 print("Error loggin in: \(error)")
                 
@@ -106,13 +112,61 @@ final class LoginViewModel: ObservableObject {
             }
             isLoading = false
         }
-        
+    }
+    
+     
+     func loginWithGoogle(completion: @escaping (Bool) -> Void) {
+         isLoading = true
+         GoogleHandlerViewModel.shared.googleSignIn {[weak self] result  in
+             
+             guard let self = self else { return }
+             
+             self.isLoading = false
+             switch result {
+                 case .success(let data):
+                     guard let dataUser = data else {
+                         completion(false)
+                         return
+                     }
             
-
-      
+                     GoogleHandlerViewModel.shared.googleUser = GoogleHandlerViewModel.shared.getUserProfileForSendToBackend(authData: dataUser)
+                     
+                   print("Registro con google hecho")
+                     completion(true)
+                 case .failure(let error):
+                     print("Error durante la autenticación: \(error.localizedDescription)")
+                     completion(false)
+             }
+         }
+     }
+    
+     func navigateToNextView(onboardingRouter: OnboardingRouter,  login: TypeOfAuth) {
+         
+         switch login {
+             case .GoogleAuth:
+                 if GoogleHandlerViewModel.shared.loggedIn {
+                     onboardingRouter.navigate(for: .signup(.generalForm(typeOfSignup: .GoogleAuth)))
+                 }
+                 
+             case .EmailAuth:
+                 if KeychainAccessAuth.shared.loggedIn {
+                     onboardingRouter.navigate(for: .login)
+                     
+                     print("Ingresando ...")
+                 }
+         }
+     }
+     
+     
+     func GoogleSignOut(){
+         GoogleAuthentication.shared.googleSignOut()
+     }
+    
+    
+    func userProfileInfo (user: GoogleUserInformationModel?)  {
+        guard let _ = user else { return }
         
     }
-
 }
 
 

@@ -64,7 +64,7 @@ struct ConfigView: View {
 }
 
 #Preview {
-    @State var path = NavigationPath()
+    @Previewable @State var path = NavigationPath()
     return ConfigView()
         .environmentObject(TabRouter())
 }

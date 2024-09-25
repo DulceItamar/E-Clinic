@@ -22,7 +22,8 @@ class UserManager: ObservableObject {
     
     @Published var patient: Patient
     @Published var doctor: Doctor
-        
+    
+ 
     @Published var signupAccess : Bool = false
     @Published var verifiedPassword : String = ""
     @Published var selectedTypeOfUser: TypeOfUsers = .patient {
@@ -43,6 +44,9 @@ class UserManager: ObservableObject {
             typeOfUser: .patient
         )
     ) {
+       
+        
+        
         self.user = user
         self.patient = Patient(user: user, birthdate: Date(), allergies: "", gender: .FEMALE)
         self.doctor = Doctor(
@@ -63,11 +67,13 @@ class UserManager: ObservableObject {
             )
         )
         
+        
+        checkGoogleUser()
         setupValidation()
         
     }
     
-    func setupValidation(){
+    private func setupValidation(){
 
         
        
@@ -77,12 +83,33 @@ class UserManager: ObservableObject {
             $user.map(\.password),
             $verifiedPassword
         ).map({ email, name, password, verifiedPassword in
+            
+           
+            
             return !email.isEmpty && !name.isEmpty && !password.isEmpty && password == verifiedPassword
         })
         .assign(to: &$signupAccess)
         
     }
     
+     func checkGoogleUser() {
+        if let googleUser = GoogleHandlerViewModel.shared.googleUser {
+            self.user.name = googleUser.name ?? "Nombre no encontrado"
+            self.user.email = googleUser.email ?? "Email no encontrado"
+        }
+    }
+    
+    
+//    func userTypeOfSignup(typeof signup: TypeOfAuth){
+//        
+//        if signup == .GoogleAuth{
+//            guard let googleUser = GoogleHandlerViewModel.shared.googleUser else { return }
+//            user.email = googleUser.email ?? "Email no encontrado"
+//            user.name = googleUser.name ?? "Nombre no encontrado"
+//            
+//        }
+// 
+//    }
 
 }
 

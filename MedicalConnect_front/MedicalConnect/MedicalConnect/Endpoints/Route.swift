@@ -91,7 +91,7 @@ enum ExternalRoutes: Hashable {
     
     
     enum SignupRoute: Hashable {
-        case generalForm
+        case generalForm(typeOfSignup: TypeOfAuth)
         case signupDoctor(user: User)
         case signPatient(user: User)
     }
@@ -106,8 +106,8 @@ extension ExternalRoutes: View {
                 MainTabView(selectedTabView: .home)
             case .signup(let route):
                 switch route{
-                    case .generalForm:
-                        SignUpView()
+                    case .generalForm(let typeOfSignup):
+                            SignUpView(typeOfSignup: typeOfSignup)
                     case .signPatient(user: let user):
                         PatientSignupFormView(user: user)
                     case .signupDoctor(user: let user):

@@ -85,6 +85,6 @@ struct TextFieldSecurityView: View {
 
 #Preview {
     
-    @State var password: String = ""
-    return TextFieldSecurityView( password: $password, label: "Contraseña", prompt: "Contraseña", keyboard: .asciiCapable)
+    @Previewable @State var password: String = ""
+     TextFieldSecurityView( password: $password, label: "Contraseña", prompt: "Contraseña", keyboard: .asciiCapable)
 }

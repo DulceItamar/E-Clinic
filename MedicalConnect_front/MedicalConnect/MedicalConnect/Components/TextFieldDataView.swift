@@ -19,13 +19,11 @@ struct TextFieldDataView: View {
                 .font(Font.custom("Montserrat-SemiBold", size: 14))
             
             TextField("", text: $data, prompt: Text(prompt))
-                
                 .keyboardType(keyboard)
                 .autocorrectionDisabled()
                 .textFieldStyle(RoundedTextFieldStyle())
                
         }
-      
         .frame(maxWidth: .infinity, alignment: .leading)
         
     }
@@ -33,8 +31,8 @@ struct TextFieldDataView: View {
 
 #Preview {
 
-    @State var data:String = "Hola"
-    return  TextFieldDataView(label: "Email", prompt: "ejemplo@email.com", keyboard: .emailAddress, data: $data)
+    @Previewable @State var data:String = "Hola"
+      TextFieldDataView(label: "Email", prompt: "ejemplo@email.com", keyboard: .emailAddress, data: $data)
 }
 
 
@@ -59,5 +57,8 @@ struct RoundedTextFieldStyle: TextFieldStyle {
     }
     
 }
+
+
+
 
 

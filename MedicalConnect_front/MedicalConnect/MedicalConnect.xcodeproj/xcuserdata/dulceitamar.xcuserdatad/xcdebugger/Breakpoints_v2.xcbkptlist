@@ -40,7 +40,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "FEC50780-1210-40F9-9C96-131AB5015F2E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MedicalConnect/Navigation/APIComponents/Request.swift"
@@ -56,7 +56,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "135384BA-B649-42CC-A98D-99D881C12539"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MedicalConnect/Navigation/APIComponents/Router.swift"
@@ -88,7 +88,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "6E678EC2-0879-4151-ACA9-B79A790116E1"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MedicalConnect/Components/MainViews/Home/Onbording/OnboardingManager.swift"
@@ -126,8 +126,8 @@
             filePath = "MedicalConnect/Login/Actions/LoginAction.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "call()"
             landmarkType = "7">
          </BreakpointContent>
@@ -136,14 +136,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "EBFD52F9-78A2-4A20-A219-9C8A5843C66F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MedicalConnect/Login/Actions/LoginAction.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "call()"
             landmarkType = "7">
          </BreakpointContent>
@@ -151,80 +151,94 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B3B27D02-03F7-45CA-AF34-C54B5BD46D4D"
-            shouldBeEnabled = "Yes"
+            uuid = "0981A84A-B22F-4FBD-A5E5-FE2BA9D5C497"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MedicalConnect/Login/ViewModels/LoginViewModel.swift"
+            filePath = "MedicalConnect/Components/MainViews/Home/Onbording/SignUpView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "login()"
-            landmarkType = "7">
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F6F4F96F-1649-4999-BE45-4E9BAA8F9124"
-            shouldBeEnabled = "Yes"
+            uuid = "33F87D05-3480-4675-BE84-002C14057EFE"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MedicalConnect/Login/ViewModels/LoginViewModel.swift"
+            filePath = "MedicalConnect/Components/MainViews/Home/Onbording/SignUpView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "login()"
-            landmarkType = "7">
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CEC4732F-930C-416B-8BB6-7CA4EFF7C4F4"
+            uuid = "4D1029D6-7999-4C93-AD52-5F63E9E1A7A1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MedicalConnect/Login/ViewModels/LoginViewModel.swift"
+            filePath = "MedicalConnect/Users/User/DataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "login()"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "checkGoogleUser()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4D1029D6-7999-4C93-AD52-5F63E9E1A7A1 - 5c83f41a76b36c0a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MedicalConnect.UserManager.checkGoogleUser() -&gt; ()"
+                  moduleName = "MedicalConnect.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dulceitamar/Library/Mobile%20Documents/com~apple~CloudDocs/No%20Country/c19-136-swift/MedicalConnect/MedicalConnect_front/MedicalConnect/MedicalConnect/Users/User/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96">
+               </Location>
+               <Location
+                  uuid = "4D1029D6-7999-4C93-AD52-5F63E9E1A7A1 - 5c83f41a76b36c0a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MedicalConnect.UserManager.checkGoogleUser() -&gt; ()"
+                  moduleName = "MedicalConnect.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dulceitamar/Library/Mobile%20Documents/com~apple~CloudDocs/No%20Country/c19-136-swift/MedicalConnect/MedicalConnect_front/MedicalConnect/MedicalConnect/Users/User/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "34D2945D-ECB8-427C-B78B-D0456719ACD9"
+            uuid = "A3DE2D8E-B78E-4231-AF40-6A942A6CB413"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MedicalConnect/Login/ViewModels/LoginViewModel.swift"
+            filePath = "MedicalConnect/Users/User/DataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "login()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C29F3EF5-A859-42B4-8385-186F75494012"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MedicalConnect/Login/Actions/LoginAction.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "call()"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "checkGoogleUser()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

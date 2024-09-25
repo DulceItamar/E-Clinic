@@ -6,31 +6,31 @@
 //
 
 import Foundation
-
-class Router {
-    
-    private let environment: AppEnvironment
-    
-    init(environment: AppEnvironment = AppEnvironment()){
-        self.environment = environment
-    }
-    
-    
-    func routedEndpoint(_ endpoint: Endpoint, url : AppEnvironment.Base) -> URL? {
-       
-        let baseURL = environment.getURL(api: url)
-        print("This is the url: \(url)")
-        var components = URLComponents(string: baseURL)
-        
-        components?.path = endpoint.path
-        components?.queryItems = endpoint.query
-
-        print(components?.url as Any)
-        return components?.url
-    }
-    
-}
-
-
 //
+//class Router {
+//    
+//    private let environment: AppEnvironment
+//    
+//    init(environment: AppEnvironment = AppEnvironment()){
+//        self.environment = environment
+//    }
+//    
+//    
+//    func routedEndpoint(_ endpoint: Endpoint, url : AppEnvironment.Base) -> URL? {
+//       
+//        let baseURL = environment.getURL(api: url)
+//        print("This is the url: \(url)")
+//        var components = URLComponents(string: baseURL)
+//        
+//        components?.path = endpoint.path
+//        components?.queryItems = endpoint.query
+//
+//        print(components?.url as Any)
+//        return components?.url
+//    }
+//    
+//}
+//
+//
+////
 

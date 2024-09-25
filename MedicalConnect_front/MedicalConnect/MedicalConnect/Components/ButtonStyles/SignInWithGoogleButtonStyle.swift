@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct SignInWithAppleButtonStyle: ButtonStyle {
+struct SignInWithGoogleButtonStyle: ButtonStyle {
     var isEnabled : Bool
 
     

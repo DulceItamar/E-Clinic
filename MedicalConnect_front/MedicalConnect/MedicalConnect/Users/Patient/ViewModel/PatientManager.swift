@@ -14,7 +14,7 @@ class PatientManager: ObservableObject {
     @Published var existAllergies : Allergies = .no
     @Published var continueAccess: Bool = false
     
-    let client = EConnectAPIClient()
+  //  let client = EConnectAPIClient()
     
     private var cancellables = Set<AnyCancellable>()
     init(

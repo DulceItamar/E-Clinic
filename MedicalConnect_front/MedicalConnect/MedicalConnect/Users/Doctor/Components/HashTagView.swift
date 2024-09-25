@@ -115,9 +115,9 @@ struct HashTagView: View {
 
 
 #Preview {
-    @State var addingLabels: String = ""
-    @State var labels: [String] = ["Embarazo de riesgo", "Citología"]
+    @Previewable @State var addingLabels: String = ""
+    @Previewable  @State var labels: [String] = ["Embarazo de riesgo", "Citología"]
     
-    @State  var totalHeight = CGFloat.zero
+    @Previewable  @State  var totalHeight = CGFloat.zero
     return HashTagView(addingLabels: $addingLabels, tags: $labels)
 }

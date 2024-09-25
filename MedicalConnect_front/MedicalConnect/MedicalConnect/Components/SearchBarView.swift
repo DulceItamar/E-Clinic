@@ -38,8 +38,8 @@ struct SearchBarView: View {
     }}
 
 #Preview {
-    @State var data: String = ""
-    return SearchBarView( prompt: "Busca por especialidad", keyboard: .asciiCapable, data: $data)
+    @Previewable @State var data: String = ""
+     SearchBarView( prompt: "Busca por especialidad", keyboard: .asciiCapable, data: $data)
 }
 
 

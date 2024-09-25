@@ -8,7 +8,7 @@
 import Foundation
 import KeychainAccess
 
-class Auth: ObservableObject {
+class KeychainAccessAuth: ObservableObject {
     
     struct Credentials {
         var accessToken: String?
@@ -20,7 +20,7 @@ class Auth: ObservableObject {
         case refreshToken
     }
     
-    static let shared: Auth = Auth()
+    static let shared: KeychainAccessAuth = KeychainAccessAuth()
     private let keychainManager = Keychain(service: "com.DuleVigueras.MedicalConnect")
     
     @Published var loggedIn: Bool = false
@@ -39,7 +39,6 @@ class Auth: ObservableObject {
             
              refreshToken = try keychainManager.get(KeychainKey.refreshToken.rawValue)
             
-           
         } catch let error {
             print("Error to get credentials: \(error) ")
         }
@@ -64,9 +63,6 @@ class Auth: ObservableObject {
     }
     
     func hasAccessToken()  -> Bool {
-        
- 
-        
         return (try? getCredentials().accessToken) != nil
     }
     

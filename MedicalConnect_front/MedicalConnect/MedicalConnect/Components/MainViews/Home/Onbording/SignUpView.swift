@@ -9,9 +9,11 @@ import SwiftUI
 
 struct SignUpView: View {
     @StateObject var userManager = UserManager()
+    
     @State var showPatientForm: Bool = false
     @State var showDoctorForm: Bool = false
     @EnvironmentObject var onboardingRouter : OnboardingRouter
+    let typeOfSignup: TypeOfAuth
     var body: some View {
         
         GeometryReader { geometry in 
@@ -31,14 +33,16 @@ struct SignUpView: View {
                     
                     
                     UserSignupFormView(
-                        email: $userManager.user.email,
+                        email: $userManager.user.email ,
                         password: $userManager.user.password,
                         verifiedPassword: $userManager.verifiedPassword,
-                        name: $userManager.user.name
+                        name: $userManager.user.name, typeOfSignup: typeOfSignup
                     )
                     .padding(EdgeInsets(top: geometry.size.height * 0.05, leading: 16, bottom:  geometry.size.height * 0.05, trailing: 16))
                     
                     Button(action: {
+                        
+                        
                         
                         if userManager.selectedTypeOfUser == .patient {
                             print("Patient")
@@ -57,7 +61,6 @@ struct SignUpView: View {
                             .font(Font.custom("Montserrat-SemiBold", size: 16))
                             .kerning(1.2)
                     })
-                
                     .buttonStyle(MainButtonStyle(isEnabled:  userManager.signupAccess))
 
                 Spacer()
@@ -72,7 +75,8 @@ struct SignUpView: View {
 }
 
 #Preview {
-    SignUpView()
+    @Previewable let typeOfSignup: TypeOfAuth = .GoogleAuth
+    SignUpView(typeOfSignup: typeOfSignup)
         .environmentObject(OnboardingRouter())
        
 }

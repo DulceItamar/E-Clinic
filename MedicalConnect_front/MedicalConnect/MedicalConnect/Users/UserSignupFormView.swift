@@ -13,19 +13,33 @@ struct UserSignupFormView: View {
     @Binding var password: String
     @Binding var verifiedPassword: String
     @Binding var name: String
+   let typeOfSignup: TypeOfAuth
+    
     var body: some View {
         VStack {
   
             
-            TextFieldDataView(label: "Nombre completo", prompt: "Tu nombre aquí...", keyboard: .namePhonePad, data: $name)
+            if typeOfSignup == .EmailAuth {
+                TextFieldDataView(label: "Nombre completo", prompt: "Tu nombre aquí...", keyboard: .namePhonePad, data: $name)
+                    
+                    .textContentType(.name)
+                    .padding(.bottom, 12)
                 
-                .textContentType(.name)
-                .padding(.bottom, 12)
+                TextFieldDataView(label: "Email", prompt: "ejemplo@email.com", keyboard: .emailAddress, data: $email)
+                    .textInputAutocapitalization(.never)
+                    .textContentType(.emailAddress)
+                    .padding(.bottom, 12)
+            } else  {
+                
+                GoogleUserDataFrameView(label: "Nombre completo", data: GoogleHandlerViewModel.shared.googleUser?.name ?? "No hay nombre registrado")
+                    .padding(.bottom, 12)
+                
+                GoogleUserDataFrameView(label: "Email", data: GoogleHandlerViewModel.shared.googleUser?.email ?? "No hay correo registrado")
+                
+                
+                
+            }
             
-            TextFieldDataView(label: "Email", prompt: "ejemplo@email.com", keyboard: .emailAddress, data: $email)
-                .textInputAutocapitalization(.never)
-                .textContentType(.emailAddress)
-                .padding(.bottom, 12)
             
             TextFieldSecurityView(password: $password, label: "Contraseña", prompt: "Escribe una contraseña", keyboard: .asciiCapable)
                 .textContentType(.newPassword)
@@ -43,17 +57,18 @@ struct UserSignupFormView: View {
 
 #Preview {
     
-    @State var signupAccess: Bool = false
-    @State var email: String = ""
-    @State var password: String = ""
-    @State var verifiedPassword: String = ""
-    @State var name: String = ""
+    @Previewable @State var signupAccess: Bool = false
+    @Previewable @State var email: String = ""
+    @Previewable @State var password: String = ""
+    @Previewable @State var verifiedPassword: String = ""
+    @Previewable @State var name: String = ""
+    @Previewable  let typeOfSingup: TypeOfAuth = .GoogleAuth
     
     
-    return UserSignupFormView(
+     UserSignupFormView(
         email: $email,
         password: $password,
         verifiedPassword: $verifiedPassword,
-        name: $name
+        name: $name, typeOfSignup: typeOfSingup
     )
 }
