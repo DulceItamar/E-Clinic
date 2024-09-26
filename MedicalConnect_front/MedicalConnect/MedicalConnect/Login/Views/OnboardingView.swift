@@ -19,7 +19,6 @@ import SwiftUI
 struct OnboardingView: View {
     
     @EnvironmentObject private var onboardingRouter : OnboardingRouter
-   
     
     @ObservedObject private var onboardingManager = LoginViewModel()
     
@@ -55,6 +54,7 @@ struct OnboardingView: View {
                                         onboardingManager.emailFormatValidation()
                                     }
                                 
+                                
                                 //Show email validation label only if email is not empty
                                 if !onboardingManager.email.isEmpty{
                                     LabelValidations(typeOfField: .email, isValid: onboardingManager.isEmailTextValidation())
@@ -62,9 +62,11 @@ struct OnboardingView: View {
                                         .padding(.bottom, geometry.size.height * 0.02)
                                 }
                                 
+                                
                                 //Password input field with validation
                                 TextFieldSecurityView(password: $onboardingManager.password, label: "Contraseña", prompt: "Tu contraseña aquí...", keyboard: .asciiCapable)
                                     .padding(.bottom, geometry.size.height * (onboardingManager.password.isEmpty ? 0.04: 0.01))
+                                
                                 
                                 //Show password validation label only if password is not empty
                                 if !onboardingManager.password.isEmpty {
@@ -86,13 +88,13 @@ struct OnboardingView: View {
                                         .padding(.bottom, geometry.size.height * 0.04)
                                 }
                                 
+                                
                                 Button(action: {
                                     
                                     onboardingManager.loginWithEmail()
                                     
                                     //Navigate if the user is logged in successfully
                                     onboardingManager.navigateToNextView(onboardingRouter: onboardingRouter, login: .EmailAuth )
-                                    print("Ingresando")
                                     
                                 }, label: {
                                     Text("Ingresar")
@@ -109,7 +111,7 @@ struct OnboardingView: View {
                                 Button {
                                 
                                     onboardingRouter.navigate(for: .signup(.generalForm(typeOfSignup: .EmailAuth)))
-                                    print("Registrarse")
+                                
                                 } label: {
                                     VStack {
                                         Text("¿No estás registrado?")
@@ -126,20 +128,17 @@ struct OnboardingView: View {
                                     .font(Font.custom("Montserrat-Regular", size: 12))
                                     .padding(.bottom, 8)
                                 
+                                
                                 /// `Sign-up Google Button:`Button for Google sign-in
                                 Button {
                                     onboardingManager.loginWithGoogle { success in
                                         if success {
                                             onboardingManager.navigateToNextView(onboardingRouter: onboardingRouter, login: .GoogleAuth)
-                                            print("Registrarse con Google")
+                                           
                                         } else {
-                                       
                                             print("Error durante el inicio de sesión con Google")
                                         }
                                     }
-                                    
-                                 
-                                    
                                 } label: {
                                     
                                     HStack {
@@ -165,12 +164,12 @@ struct OnboardingView: View {
                 })
                 .ignoresSafeArea()
                 
+                
                 // Display loading  indicator if the login process is ongoing
                 if onboardingManager.isLoading {
                     ProgressView()
                         .tint(.babyBlue300)
                         .scaleEffect(2)
-                       // .delayAppeareance(bySeconds: 1.0)
                 }
             }
             //Present the full-screen starting view

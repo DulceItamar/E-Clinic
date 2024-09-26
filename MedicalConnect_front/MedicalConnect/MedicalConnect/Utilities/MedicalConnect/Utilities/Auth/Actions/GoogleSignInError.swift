@@ -1,4 +1,4 @@
-/// `GoogleSignError` is s an enum that represents various errors that can occur during the Google Sign-In process or Firebase authentication. Each case in the enum corresponds to a specific error scenario, and the errorDescription property provides localized error messages.
+/// `GoogleSignError` is an enum that represents various errors that can occur during the Google Sign-In process or Firebase authentication. Each case in the enum corresponds to a specific error scenario, and the errorDescription property provides localized error messages.
 
 import Foundation
 
