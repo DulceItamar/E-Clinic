@@ -1,9 +1,4 @@
-//
-//  GoogleUserInformationModel.swift
-//  MedicalConnect
-//
-//  Created by Dulce Itamar Vigueras Ballesteros on 17/09/24.
-//
+///`GoogleUserInformationModel` struct contains the user's profile information (name, email and phone number
 
 import Foundation
 
