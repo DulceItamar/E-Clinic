@@ -1,9 +1,7 @@
-//
-//  NavigationRouter.swift
-//  MedicalConnect
-//
-//  Created by Dulce Itamar Vigueras Ballesteros on 31/07/24.
-//
+/// `OnboardingRouter` is responsible for handling the navigation flow within the onboarding process of the application.
+/// It uses a `NavigationPath` to track and manage the user's navigation history and allows for programmatic navigation between different routes.
+/// The router provides methods to navigate forward, pop to the last screen, or return to the root of the navigation stack.
+
 
 import Foundation
 import SwiftUI
@@ -23,6 +21,4 @@ final class OnboardingRouter: ObservableObject {
     func popToRoot(){
         routes.removeLast(routes.count)
     }
-    
-    
 }

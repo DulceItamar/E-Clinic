@@ -1,33 +1,35 @@
-//
-//  Route.swift
-//  MedicalConnect
-//
-//  Created by Dulce Itamar Vigueras Ballesteros on 31/07/24.
-//
+
 
 import Foundation
 import SwiftUI
 
 
 //MARK: - Menu Tab
+///`TabMenu` is an enum representing the tab menu options in the app. These are used for navigating between internal main screens.
 
-//Enum for internal routes
+
+
 enum TabMenu: Hashable, Identifiable, CaseIterable {
     case home
     case settings
     case profile
     
+    
+    // Provides a unique identifier for each case of the enum, required to conform to `Identifiable`.
     var id: TabMenu { self }
     
 }
 
 
+/// `HomeRoute`is an enum representing navigation routes within the Home section of the app.
+/// Each case corresponds to a different view that can be navigated to from the home screen.
 enum HomeRoute: Hashable {
     case details(doctor: Doctor)
     case schedule(doctor: Doctor)
     case confirmPayment
 }
 
+/// Extending `HomeRoute` to conform to `View`, allowing direct rendering of the associated views based on the current route.
 extension HomeRoute: View {
     var body: some View {
         switch self {
@@ -42,11 +44,14 @@ extension HomeRoute: View {
 }
 
 
+
+///`SettingRoute` is an enum representing navigation routes within the Settings section of the app.
 enum SettingRoute: Hashable {
     case details(item: Service)
     
 }
 
+/// Extending `SettingRoute` to conform to `View`, allowing direct rendering of the associated views.
 extension SettingRoute: View {
     var body: some View {
         switch self {
@@ -57,10 +62,13 @@ extension SettingRoute: View {
 }
 
 
+///`ProfileRoute` is an enum representing navigation routes within the Profile section of the app.
 enum ProfileRoute: Hashable {
     case details(item: MyMenu)
 }
 
+
+/// Extending `ProfileRoute` to conform to `View`, allowing direct rendering of the associated views.
 extension ProfileRoute : View {
     var body: some View {
         switch self {
@@ -83,13 +91,13 @@ extension ProfileRoute : View {
 //MARK: - External Actions
 
 //Enum for external routes
+///`ExternalRoutes`is an enum representing external navigation routes (outside the main app flow).
 enum ExternalRoutes: Hashable {
     case signup(SignupRoute)
     case login
-//    case logout
-//    case settings
     
     
+    /// Enum representing the signup routes.
     enum SignupRoute: Hashable {
         case generalForm(typeOfSignup: TypeOfAuth)
         case signupDoctor(user: User)
@@ -98,6 +106,7 @@ enum ExternalRoutes: Hashable {
 }
 
 
+/// Extending `ExternalRoutes` to conform to `View`, allowing direct rendering of the associated views.
 extension ExternalRoutes: View {
     var body: some View {
         switch self {
@@ -116,75 +125,4 @@ extension ExternalRoutes: View {
         }
     }
 }
-
-
-
-
-//enum Route {
-//    
-//    
-//    case signup
-//    case login
-//    case signupForm(UserRoute)
-//    
-//    
-//    enum UserRoute: Hashable {
-//        case doctor(user: User)
-//        case patient(user: User)
-//    }
-//
-//}
-//
-//extension Route: Hashable {
-//
-//    
-//    func hash(into hasher: inout Hasher) {
-//       hasher.combine(self.hashValue)
-//    }
-//    
-//    
-//    static func == (lhs: Route, rhs: Route) -> Bool {
-//        switch (lhs, rhs) {
-//
-//                
-//            case (.signup,  .signup):
-//                return true
-//                
-//            case (.signupForm(let lhsUser), .signupForm(let rhsUser)):
-//                return lhsUser == rhsUser
-//                
-//            default:
-//                return false
-//  
-//        }
-//    }
-//    
-//
-//}
-//
-//
-//extension Route: View {
-//    
-//    var body: some View{
-//        switch self {
-//            case .login:
-//                EmptyView()
-//            case .signup:
-//                    SignUpView()
-//            case .signupForm(let userRoute):
-//                switch userRoute{
-//                    
-//                        
-//                    case .doctor(user: let user):
-//                        DoctorSignupFormView(user: user)
-//                    case .patient(user: let user):
-//
-//                        PatientSignupFormView(user: user)
-//                }
-//        }
-//    }
-//    
-//}
-//
-
 
