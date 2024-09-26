@@ -1,9 +1,4 @@
-//
-//  HTTPMethod.swift
-//  MedicalConnect
-//
-//  Created by Dulce Itamar Vigueras Ballesteros on 30/07/24.
-//
+///`HTTPMethod` is an enum that represents the http request methods.
 
 import Foundation
 
