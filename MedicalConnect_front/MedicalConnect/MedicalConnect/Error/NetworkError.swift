@@ -1,9 +1,4 @@
-//
-//  Requester.swift
-//  MedicalConnect
-//
-//  Created by Dulce Itamar Vigueras Ballesteros on 12/08/24.
-//
+/// `NetworkError` is an enum that represents various errors that can occur during the http request process. Each case in the enum corresponds to a specific error scenario.
 
 import Foundation
 

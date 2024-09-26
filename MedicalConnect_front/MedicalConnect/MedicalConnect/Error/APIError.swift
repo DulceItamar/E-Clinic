@@ -1,8 +1,4 @@
-//
-//  APIError.swift
-//  MedicalConnect
-//
-//  Created by Dulce Itamar Vigueras Ballesteros on 13/09/24.
+/// `APIError` is an enum that represents various errors that can occur during the creation of the API. Each case in the enum corresponds to a specific error scenario. 
 //
 
 import Foundation
