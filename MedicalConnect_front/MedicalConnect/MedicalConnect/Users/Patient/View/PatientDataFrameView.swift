@@ -1,9 +1,10 @@
-//
-//  PatientDataFrameView.swift
-//  MedicalConnect
-//
-//  Created by Dulce Itamar Vigueras Ballesteros on 29/07/24.
-//
+///`PatientDataFrameView`  is a SwiftUI View that presents detailed information about a patient. It displays the patient's name, age, allergies, gender, and the number of appointments made, along with a visually appealing layout using rounded rectangles and shadows. This view is designed for use in a patient management application, allowing users to quickly view relevant patient data.
+/// - Parameters:
+///  - name: The name of the patient.
+///  - age: The age of the patient.
+///  - hasAllergies: An enumeration value indicating whether the patient has allergies. This should conform to the Allergies enum type.
+///  - gender: An enumeration value representing the gender of the patient. This should conform to the Gender enum type.
+///  - appointmentsMade: The number of appointments that the patient has made.
 
 import SwiftUI
 
@@ -39,11 +40,12 @@ struct PatientDataFrameView: View {
                             Text("Consultas realizadas")
                                 .font(Font.custom("Montserrat-Regular", size: 14))
                                 .padding(.bottom,10)
-    
+                            
                             
                         }
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                         .padding(.bottom,10)
+                        
                         
                         VStack(alignment: .trailing) {
                             Text(hasAllergies.rawValue)
@@ -57,20 +59,19 @@ struct PatientDataFrameView: View {
                             Text("\(appointmentsMade)")
                                 .font(Font.custom("Montserrat-Regular", size: 14))
                                 .padding(.bottom,10)
-    
+                            
                             
                         }
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
                         .padding(.bottom,10)
-    
-
+                        
+                        
                     }
                     .padding(.horizontal,12)
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
                 }
                 .frame(height: 180)
                 .offset(CGSize(width: 0.0, height: 80.0))
-                
             
             
             HStack{
@@ -91,7 +92,6 @@ struct PatientDataFrameView: View {
             }
             .padding(.horizontal, 16)
             .background(.main)
-           
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: 5, x: 2, y: 2)
             .offset(CGSize(width: 0.0, height: -200.0))
@@ -100,9 +100,6 @@ struct PatientDataFrameView: View {
         }
         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
         .padding(16)
-       
-        
-
     }
 }
 

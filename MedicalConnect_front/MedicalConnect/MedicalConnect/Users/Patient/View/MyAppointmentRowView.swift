@@ -1,9 +1,9 @@
-//
-//  MyAppointmentRowView.swift
-//  MedicalConnect
-//
-//  Created by Dulce Itamar Vigueras Ballesteros on 30/07/24.
-//
+/// `MyAppointmentRowView` is a custom SwiftUI view that displays details about a medical appointment, including the doctor's name, medical specialty, and appointment date. The view is styled with a rounded rectangle and includes text with custom fonts.
+/// - Parameters:
+///    - doctorName: The name of the doctor associated with the appointment.
+///    - medicalSpeciality: The medical specialty of the doctor. MedicalSpeality is assumed to be an enum that provides a rawValue string, representing the specialty of the doctor
+///    - dateAppointment: The date and time of the appointment, which will be formatted as a readable date and time in the view.
+///
 
 import SwiftUI
 

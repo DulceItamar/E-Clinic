@@ -1,9 +1,4 @@
-//
-//  WorkDays.swift
-//  MedicalConnect
-//
-//  Created by Dulce Itamar Vigueras Ballesteros on 30/07/24.
-//
+///`workDays` is an enum defines the days of the week as they relate to a doctor's scheduling availability for medical appointments. Each case in the enum corresponds to a specific day, represented by a short string in Spanish
 
 import Foundation
 

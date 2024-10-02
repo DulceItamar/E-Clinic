@@ -1,9 +1,4 @@
-//
-//  MenuProfile.swift
-//  MedicalConnect
-//
-//  Created by Dulce Itamar Vigueras Ballesteros on 29/07/24.
-//
+/// `MenuProfile` is an enum representing different sections or menu items in a user profile, such as personal data, appointments, studies, and treatments. Each case is a string corresponding to a user-facing label in Spanish.
 
 import Foundation
 

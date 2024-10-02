@@ -1,9 +1,10 @@
-//
-//  ProfileDocView.swift
-//  MedicalConnect
-//
-//  Created by Dulce Itamar Vigueras Ballesteros on 28/07/24.
-//
+///`ProfileDocView` is a SwiftUI view designed to present detailed information about a doctor. This view includes the doctor's name, evaluation score, medical specialty, services offered, workdays, job description, and reviews from patients. It also features a button for scheduling an appointment with the doctor.
+///- Parameters:
+/// - doctor: An instance of the Doctor model that contains the detailed information of the doctor being displayed, including their name, medical specialty, services, workdays, and job description.
+/// - validations: An instance of the DoctorDataValidations class or struct that provides methods for validating or computing data related to the doctor's evaluations, consultations, and reviews.
+/// - router: An environment object used for managing navigation routes within the application. It enables the view to perform routing actions when scheduling consultations.
+/// - test: An instance used for generating or accessing sample data, useful in previews or for testing purposes.
+
 
 import SwiftUI
 
@@ -20,6 +21,9 @@ struct ProfileDocView: View {
         GeometryReader { geometry in
             VStack(spacing: geometry.size.height * 0.02 ) {
                 ScrollView {
+                    
+                    
+                    //This view displays a card containing the doctor's name, evaluation score, specialty, services, workdays, number of consultations, and job description. It is padded for visual spacing.
                     CardAboutDoctorView(
                         name: doctor.user.name,
                         evaluation: validations.getAverageOfEvaluations(doctor: doctor),
@@ -31,13 +35,13 @@ struct ProfileDocView: View {
                     )
                     .padding(.vertical, geometry.size.height * 0.02)
                     
+                    
+                    //This button triggers the action to schedule an appointment with the doctor. It utilizes the router to navigate to the scheduling screen. The button style is customizable, and padding is applied for better layout.
                     Button(action: {
                         
                         router.addHomeRoute(to: .schedule(doctor: doctor))
-//                        router.path.append(HomeRoute.schedule(doctor: doctor))
-                        
-
                         print("Agendar consulta")
+                        
                     }, label: {
                         Text("Agendar consulta")
                             .padding(.horizontal, 24)
@@ -46,7 +50,7 @@ struct ProfileDocView: View {
                     })
                     .buttonStyle(MainButtonStyle(isEnabled: true))
                     .padding(.vertical, geometry.size.height * 0.02)
- 
+                    
                     
                     VStack {
                         Text("Reseñas")

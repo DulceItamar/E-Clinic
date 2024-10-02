@@ -86,6 +86,8 @@
 		709707182C5D59B000CE5376 /* AppointmenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709707172C5D59B000CE5376 /* AppointmenManager.swift */; };
 		7097071A2C5D5DB300CE5376 /* MyCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709707192C5D5DB300CE5376 /* MyCalendarView.swift */; };
 		7097071D2C5D63B600CE5376 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7097071C2C5D63B600CE5376 /* Appointment.swift */; };
+		70B601992CADCAD400C9B9C1 /* ResultDoctorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B601982CADCAD200C9B9C1 /* ResultDoctorData.swift */; };
+		70B6019B2CADD54D00C9B9C1 /* AllDoctorEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B6019A2CADD54D00C9B9C1 /* AllDoctorEndpoints.swift */; };
 		70C682422C5CB94500B56003 /* ServiceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C682412C5CB94500B56003 /* ServiceDetailView.swift */; };
 		70C6825E2C5CDEF700B56003 /* myMedicalStudiesHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C6825D2C5CDEF700B56003 /* myMedicalStudiesHistoryView.swift */; };
 		70C682602C5CEAC500B56003 /* SearchingDoctorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C6825F2C5CEAC500B56003 /* SearchingDoctorView.swift */; };
@@ -216,6 +218,8 @@
 		709707172C5D59B000CE5376 /* AppointmenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmenManager.swift; sourceTree = "<group>"; };
 		709707192C5D5DB300CE5376 /* MyCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCalendarView.swift; sourceTree = "<group>"; };
 		7097071C2C5D63B600CE5376 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Appointment.swift; path = MedicalConnect/Consult/Components/Appointment.swift; sourceTree = SOURCE_ROOT; };
+		70B601982CADCAD200C9B9C1 /* ResultDoctorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDoctorData.swift; sourceTree = "<group>"; };
+		70B6019A2CADD54D00C9B9C1 /* AllDoctorEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDoctorEndpoints.swift; sourceTree = "<group>"; };
 		70C682412C5CB94500B56003 /* ServiceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailView.swift; sourceTree = "<group>"; };
 		70C6825D2C5CDEF700B56003 /* myMedicalStudiesHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myMedicalStudiesHistoryView.swift; sourceTree = "<group>"; };
 		70C6825F2C5CEAC500B56003 /* SearchingDoctorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingDoctorView.swift; sourceTree = "<group>"; };
@@ -442,6 +446,7 @@
 		703A4EDF2C55CB1D00ECA09B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				70B601982CADCAD200C9B9C1 /* ResultDoctorData.swift */,
 				703A4EDD2C55C9BC00ECA09B /* Doctor.swift */,
 				70D9B5AF2C56D2ED00E507DD /* Review.swift */,
 				70D9B5B12C56E7C000E507DD /* DoctorEvaluationData.swift */,
@@ -602,7 +607,6 @@
 		7087A1F02C599EA500A3CEFB /* User */ = {
 			isa = PBXGroup;
 			children = (
-				7087A1F22C59C2B900A3CEFB /* Repository */,
 				7087A1F12C599EC900A3CEFB /* Model */,
 				70C726442C5ABCBA009FB7B0 /* DataManager.swift */,
 			);
@@ -616,13 +620,6 @@
 			);
 			name = Model;
 			path = ../Doctor/Model;
-			sourceTree = "<group>";
-		};
-		7087A1F22C59C2B900A3CEFB /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repository;
 			sourceTree = "<group>";
 		};
 		7087A1F32C59CC5700A3CEFB /* APIClient */ = {
@@ -648,6 +645,7 @@
 		7087A1FB2C59D9E600A3CEFB /* DoctorEndpoints */ = {
 			isa = PBXGroup;
 			children = (
+				70B6019A2CADD54D00C9B9C1 /* AllDoctorEndpoints.swift */,
 			);
 			name = DoctorEndpoints;
 			path = ../Endpoints/Patient/MedicalConnect/APIClient/Patient/DoctorEndpoints;
@@ -1025,6 +1023,7 @@
 				7074A12B2C9A43140097136B /* GoogleUserInformationModel.swift in Sources */,
 				709707182C5D59B000CE5376 /* AppointmenManager.swift in Sources */,
 				70D9B5B52C56F18D00E507DD /* TestData.swift in Sources */,
+				70B601992CADCAD400C9B9C1 /* ResultDoctorData.swift in Sources */,
 				708A6DA32C76B83C004140C1 /* LoginRequest.swift in Sources */,
 				703AE8EA2C52A16F007FEC4C /* StartingView.swift in Sources */,
 				702B37532C545B34003BF42D /* OnboardingView.swift in Sources */,
@@ -1065,6 +1064,7 @@
 				702B37552C546911003BF42D /* TextFieldDataView.swift in Sources */,
 				7033B0692C94B414009035A8 /* APIRequest.swift in Sources */,
 				70FBEF4D2C54D007004FDA53 /* Allergies.swift in Sources */,
+				70B6019B2CADD54D00C9B9C1 /* AllDoctorEndpoints.swift in Sources */,
 				706F32BE2C9A78CA00240558 /* GoogleSignInError.swift in Sources */,
 				706EA8B32C768468008EC09C /* LabelValidations.swift in Sources */,
 				703A4EE72C55D97A00ECA09B /* DoctorServicesCardView.swift in Sources */,

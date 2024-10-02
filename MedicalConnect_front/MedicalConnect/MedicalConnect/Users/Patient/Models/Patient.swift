@@ -1,20 +1,21 @@
-//
-//  Patient.swift
-//  MedicalConnect
-//
-//  Created by Dulce Itamar Vigueras Ballesteros on 27/07/24.
-//
-
+///`Patient` is a struct representing a patient in a medical context. It conforms to Hashable, Identifiable, Decodable, and Encodable protocols, meaning that it can be used in collections requiring unique identification, serialized to/from JSON, and compared for equality.
+///- Parameters:
+/// - id: A unique identifier for each Patient instance, automatically generated using UUID(). This property is implicitly required by the Identifiable protocol.
+/// - user: The User associated with this patient, containing basic user information such as name, email, password, and phone number.
+/// - birthdate: The patient's date of birth.
+/// - allergies: A description of any allergies the patient has.
+/// - gender: The patient's gender.
+/// - paymentMethods: An optional array of the patient's payment methods. Each payment method could be represented by a PaymentMethod type, which could include details like card number, card name, and expiration date.
 import Foundation
 
 struct Patient:Hashable, Identifiable {
 
-    
+
 
   let id = UUID()
     var user : User
     
-  
+    
     var birthdate: Date
     var allergies: String
     var gender: Gender
@@ -22,6 +23,7 @@ struct Patient:Hashable, Identifiable {
     var paymentMethods: [PaymentMethod]?
     
     
+    /// `UserCodingKeys`  defines the keys used for encoding/decoding the User part of the Patient struct.
     enum UserCodingKeys: String, CodingKey {
         case id
         case name
@@ -31,6 +33,8 @@ struct Patient:Hashable, Identifiable {
         case typeUser = "type_of_user"
     }
     
+    
+    ///`PatientCodingKeys` This enum defines the keys used for encoding/decoding the Patient struct.
     enum PatientCodingKeys: String, CodingKey {
         case user
         
@@ -41,15 +45,10 @@ struct Patient:Hashable, Identifiable {
         
         case paymentMethods = "payment_methods"
     }
-    
-//    enum PaymentCodingKeys: String, CodingKey {
-//        case cardName = "card_name"
-//        case cardNumber = "card_number"
-//        case expiredDate = "expired_date"
-//    }
-
 }
 
+
+/// The Patient struct conforms to both Decodable and Encodable protocols, allowing it to be easily serialized and deserialized.
 extension Patient: Decodable {
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: PatientCodingKeys.self)

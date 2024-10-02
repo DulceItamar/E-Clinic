@@ -1,9 +1,14 @@
-//
-//  Doctors.swift
-//  MedicalConnect
-//
-//  Created by Dulce Itamar Vigueras Ballesteros on 27/07/24.
-//
+///`Doctor` represents a medical professional within the MedicalConnect application. It encapsulates various attributes related to a doctor's profile, including personal information, professional details, work schedule, services offered, pricing, and evaluation data. The struct conforms to the Hashable and Identifiable protocols, enabling it to be used effectively within SwiftUI views and collections. Additionally, it conforms to the Decodable and Encodable protocols through extensions, facilitating seamless JSON encoding and decoding for data persistence and network communication.
+/// - Parameters:
+///    - id: A unique identifier for each Doctor instance. Automatically generated upon initialization.
+///    - user: Encapsulates personal information about the doctor, such as name, email, password, phone number, and user type.
+///    - medicalSpeciality: Represents the doctor's area of specialization within the medical field.
+///    - professionalLicense: Stores the doctor's professional license number or identifier.
+///    - jobDescription: Provides a description of the doctor's role, responsibilities, and areas of expertise.
+///    - workDays: Lists the days of the week the doctor is available to work.
+///    - services: Enumerates the services offered by the doctor, such as consultations, specific medical procedures, etc.
+///    - servicePrice: Indicates the price charged by the doctor for their services.
+///    - evaluationData: Contains data related to the doctor's evaluations, such as average ratings, number of consultations, and reviews.
 
 import Foundation
 
@@ -22,9 +27,7 @@ struct Doctor: Hashable, Identifiable {
     var evaluationData: DoctorEvaluationData
     
     
-    
-    
-    
+    ///`UserCodingKeys` defines the mapping between the JSON keys and the User struct's properties during decoding and encoding processes.
     enum UserCodingKeys: String, CodingKey {
         case id
         case name
@@ -35,6 +38,7 @@ struct Doctor: Hashable, Identifiable {
     }
     
     
+    ///`DoctorCodingKeys` defines the mapping between the JSON keys and the Doctor struct's properties during decoding and encoding processes.
     enum DoctorCodingKeys: String, CodingKey {
         case user
         case medicalSpeciality = "medical_speciality"
@@ -45,17 +49,10 @@ struct Doctor: Hashable, Identifiable {
         case servicePrice = "service_price"
         case evaluationData = "evaluation_data"
     }
-    
-    
-//    enum evaluationDataCodingKeys: String, CodingKey {
-//        case averageOfEvaluations = "average_of_evaluations"
-//        case numberOfConsults = "number_of_consults"
-//        case reviews
-//    }
 }
 
 
-
+///Allows the Doctor struct to be initialized from external representations like JSON.
 extension Doctor: Decodable {
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: DoctorCodingKeys.self)
@@ -79,20 +76,11 @@ extension Doctor: Decodable {
         
         self.evaluationData = try container.decode(DoctorEvaluationData.self, forKey: .evaluationData)
         
-        
-//        let evaluationDoctorContainer  = try container.nestedContainer(keyedBy: evaluationDataCodingKeys.self, forKey: .evaluationData)
-        
-       
-        
-//        self.evaluationData = DoctorEvaluationData(
-//            averageOfEvaluations: try evaluationDoctorContainer.decode(Float.self, forKey: .averageOfEvaluations),
-//            numberOfConsults: try evaluationDoctorContainer.decode(Int.self, forKey: .numberOfConsults),
-//            reviews: try evaluationDoctorContainer.decode([Review].self, forKey: .reviews)
-//        )
     }
 }
 
 
+///Allows the Doctor struct to be converted into an external representation like JSON.
 extension Doctor: Encodable {
     func encode(to encoder: any Encoder) throws {
         var container = encoder.container(keyedBy: DoctorCodingKeys.self)

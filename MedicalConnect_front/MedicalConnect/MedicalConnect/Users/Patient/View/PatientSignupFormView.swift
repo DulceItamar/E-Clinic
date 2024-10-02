@@ -1,21 +1,18 @@
-//
-//  PatientSignupFormView.swift
-//  MedicalConnect
-//
-//  Created by Dulce Itamar Vigueras Ballesteros on 27/07/24.
-//
+///`PatientSignupFormView`  is a SwiftUI view that represents a patient sign-up form. It collects key user information such as phone number, gender, birthdate, and allergies. The form interacts with a PatientManager (a view model) to manage the state of the patient's data and save it upon submission.
+/// - Parameters:
+///    - patientManager: A StateObject for managing the patient's data using PatientManager. This object keeps track of the form’s state and handles saving the patient’s information.
+///    - user: The User instance provided to the view, representing the initial user information such as name, email, and phone. This is likely passed from a prior sign-up step.
+
 
 import SwiftUI
 
 struct PatientSignupFormView: View {
-   //@StateObject var userM = UserManager()
+
     @StateObject var patientManager = PatientManager()
    
     let user: User
     
    
-    
-    
     var body: some View {
         
         GeometryReader{ geometry in
@@ -77,13 +74,12 @@ struct PatientSignupFormView: View {
                             BigFrameTextFieldView(label: "Escribe tus alergias en el siguiente recuadro", prompt: "Tengo alergia a...", keyboard: .asciiCapable, data:  patientManager.patient.allergies)
                         }
                         
+                        
+                        // A button labeled "Continuar" (Continue). When pressed, it triggers the saveUserDataInPatient(userData:) function from PatientManager, saving the patient's data. The button is styled using MainButtonStyle, and its enabled state is controlled by patientManager.continueAccess, which likely checks if all necessary fields are filled.
                         Button(action: {
                             patientManager.saveUserDataInPatient(userData: user)
                             print(patientManager.patient.user.name)
                             
-//                            Task {
-//                                await patientManager.sendPatientInfo()
-//                            }
                             
                             print("Saving patient data...")
                         }, label: {
@@ -100,8 +96,6 @@ struct PatientSignupFormView: View {
             .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
         }
        
-        
-        
     }
 }
 

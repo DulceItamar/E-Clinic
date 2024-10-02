@@ -12,13 +12,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>8</string>
+					<string>10</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>8</string>
+					<string>9</string>
 					<key>Timestamp</key>
-					<string>744866189.254523</string>
+					<string>749537085.522029</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -34,15 +34,16 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string></string>
+				<string>
+</string>
 				<key>leading</key>
 				<string>
 import SwiftUI
 </string>
 				<key>trailing</key>
 				<string>
-
 struct ProfileDocView: View {
+    let doctor: Doctor
 </string>
 			</dict>
 			<key>type</key>

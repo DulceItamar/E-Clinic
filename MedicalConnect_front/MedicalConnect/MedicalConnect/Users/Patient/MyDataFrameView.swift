@@ -1,9 +1,10 @@
-//
-//  MyDataFrameView.swift
-//  MedicalConnect
-//
-//  Created by Dulce Itamar Vigueras Ballesteros on 30/07/24.
-//
+/// `MyDataFrameView` is a SwiftUI View that presents detailed information about a user, including their name, birthdate, phone number, email, and password. The view uses a rounded rectangle background and displays the user information in a well-organized layout.
+///- Parameters:
+///  - name: The name of the patient.
+///  - birthdate: The birthdate of the user, stored as a Date object.
+///  - phone: The user's phone number.
+///  - email: The user's email number.
+///  - password: The user's password (consider hiding or obfuscating this in production apps for security).
 
 import SwiftUI
 

@@ -1,26 +1,30 @@
-//
-//  DoctorSignupFormView.swift
-//  MedicalConnect
-//
-//  Created by Dulce Itamar Vigueras Ballesteros on 27/07/24.
-//
+/// `DoctorSignupFormView` is a SwiftUI view designed for the doctor registration process. It collects various details about the doctor, such as their medical specialty, professional license, job description, and services provided. The view is interactive and allows the user to input information that will be managed by a `DoctorManager`
+/// - Parameters:
+///    - user: The user instance that holds the basic information of the doctor, which will be used during the registration process.
+///    - doctorManager: An instance of DoctorManager, which manages the state and data related to the doctor being registered. It observes changes and updates the UI accordingly.
+///    - addingLabels: A String variable for holding labels that the doctor may want to add
+///    - tags: An array of String to store the tags or services entered by the user.
+///    - continueAccess: A Bool variable that determines if the user can proceed with the registration, potentially linked to input validation.
+///    - totalHeight: A private CGFloat variable to track the total height of the content for layout purposes.
+
+///
 
 import SwiftUI
 
 struct DoctorSignupFormView: View {
     let user: User
     @ObservedObject var doctorManager = DoctorManager()
-   
+    
     @State var addingLabels: String = ""
     @State var tags: [String] = []
     @State var continueAccess: Bool = false
     
     @State private var totalHeight = CGFloat.zero
     var body: some View {
-
         
-            UpperFrame(label: "Te pediremos algunos datos importantes")
-            
+        
+        UpperFrame(label: "Te pediremos algunos datos importantes")
+        
         
         GeometryReader { geometry in
             ScrollView {
@@ -33,14 +37,14 @@ struct DoctorSignupFormView: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
                             .fill(.white)
-                            
                             .stroke(Color("babyBlue-300"), lineWidth: /*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
                         
+                        
+                        //A picker for the doctor to select their medical specialty from predefined options.
                         Picker("Select your speciality", selection: $doctorManager.doctor.medicalSpeciality) {
                             ForEach(MedicalSpeality.allCases, id: \.self) { option in
                                 Text(option.rawValue)
-                                    
-                                    
+                                
                             }
                         }
                         .padding(.vertical,5)
@@ -59,12 +63,11 @@ struct DoctorSignupFormView: View {
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: geometry.size.height * 0.05, trailing: 0))
                 
                 
-                
-                    TagView(services: $doctorManager.doctor.services, tagText: $doctorManager.addingServiceLabels)
+                TagView(services: $doctorManager.doctor.services, tagText: $doctorManager.addingServiceLabels)
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: geometry.size.height * 0.05, trailing: 0))
                 
                 
-                
+                //A button to submit the registration form. It triggers the saveUserDataInDoctor method of DoctorManager to save the input data.
                 Button(action: {
                     doctorManager.saveUserDataInDoctor(userData: user)
                     print(doctorManager.doctor.user.name)
@@ -80,7 +83,6 @@ struct DoctorSignupFormView: View {
             }
             .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
         }
-           
     }
 }
 

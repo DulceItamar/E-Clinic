@@ -1,9 +1,4 @@
-//
-//  MedicalSpeality.swift
-//  MedicalConnect
-//
-//  Created by Dulce Itamar Vigueras Ballesteros on 27/07/24.
-//
+/// `MedicalSpeality` is an enum represents a collection of medical specialties in a healthcare application. It conforms to the String, CaseIterable, and Codable protocols, allowing it to be used in various contexts, such as displaying a list of specialties and serializing/deserializing data for storage or network communication.
 
 import Foundation
 

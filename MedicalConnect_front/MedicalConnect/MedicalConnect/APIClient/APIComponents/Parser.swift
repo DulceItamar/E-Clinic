@@ -8,16 +8,20 @@
 import Foundation
 
 protocol ParserProtocol {
-    func parseReceiveData<T: Decodable>(_ data: Data, type: T.Type, decoder: JSONDecoder) -> T?
+    func parseReceiveData<T: Decodable>(_ data: Data, type: T.Type) -> T?
+    
+    func parseSendData<T: Encodable>(_ object: T) -> Data?
 }
 
 final class Parser: ParserProtocol {
+
+    
     
 
     
-    func parseReceiveData<T>(_ data: Data, type: T.Type, decoder: JSONDecoder) -> T? where T: Decodable{
+    func parseReceiveData<T>(_ data: Data, type: T.Type) -> T? where T: Decodable{
         do {
-            
+            let decoder = JSONDecoder()
             return try decoder.decode(T.self, from: data)
             
             
@@ -30,8 +34,9 @@ final class Parser: ParserProtocol {
         return nil
     }
     
-    func parseSendData<T>(_ object: T, encoder: JSONEncoder) -> Data? where T: Encodable {
+    func parseSendData<T>(_ object: T) -> Data?   where T: Encodable {
         do {
+            let encoder = JSONEncoder()
             print("sucess encoder")
             return try encoder.encode(object)
           

@@ -1,10 +1,4 @@
-//
-//  User.swift
-//  MedicalConnect
-//
-//  Created by Dulce Itamar Vigueras Ballesteros on 30/07/24.
-//
-
+/// `UserProtocol` defines the essential properties required for a user in the system. It ensures that any conforming type provides the necessary user information and conforms to the Hashable protocol, allowing instances to be stored in collections like sets or used as dictionary keys.
 import Foundation
 
 protocol UserProtocol: Hashable {
@@ -15,6 +9,9 @@ protocol UserProtocol: Hashable {
     var typeOfUser: TypeOfUsers { get }
 }
 
+
+/// A struct representing a user
+/// `User` conforms to `UserProtocol`to provide all necessary user information and support hashing
 struct User: UserProtocol {
  
     var name: String
