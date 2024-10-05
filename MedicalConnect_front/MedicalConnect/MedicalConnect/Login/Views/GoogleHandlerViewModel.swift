@@ -52,7 +52,7 @@ final class GoogleHandlerViewModel: ObservableObject {
     
     
     ///`googleSignOut` signs out the current google user by calling googleAuth.googleSignOut() and resets the  `loggedIn` property to false
-    func googleSignOut() {
+    func googleSignout() {
       
         self.loggedIn = false
         googleAuth.googleSignOut()

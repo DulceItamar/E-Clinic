@@ -8,9 +8,21 @@
 
 import Foundation
 
-struct LoginResponse: Decodable {
+struct LoginResponse : Decodable {
+
     let data: LoginResponseData
+   
 }
 
+//extension LoginResponse : Decodable {
+//    init(from decoder: any Decoder) throws {
+//       
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+////        self.success = try container.decode(Bool.self, forKey: .success)
+//        self.data = try container.decodeIfPresent(AuthData.self, forKey: .data)
+//        self.results = try container.decodeIfPresent(Patient.self, forKey: .results)
+//        
+//    }
+//}
 
 

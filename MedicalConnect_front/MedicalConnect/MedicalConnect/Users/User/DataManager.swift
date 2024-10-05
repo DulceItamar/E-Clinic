@@ -43,7 +43,8 @@ class UserManager: ObservableObject {
             email: "",
             password: "",
             phone: "",
-            typeOfUser: .patient
+            typeOfUser: .patient,
+            typeOfSignup: nil
         )
     ) {
        

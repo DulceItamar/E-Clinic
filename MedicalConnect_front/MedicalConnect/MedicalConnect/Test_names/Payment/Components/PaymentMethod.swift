@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct PaymentMethod: Hashable, Identifiable, Codable {
+struct PaymentMethod: Hashable, Identifiable, Encodable {
     var id = UUID()
     let name: String
     let cardNumber: String
     let expiredDate: String
     var cvv: String?
-  
+    
+    
 }

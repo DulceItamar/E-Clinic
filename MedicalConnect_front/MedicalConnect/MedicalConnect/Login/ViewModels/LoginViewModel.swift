@@ -98,6 +98,7 @@ class LoginViewModel: ObservableObject {
                 
                 
                 // Extract access and refresh tokens from the response.
+               // guard let data = response.data else { return }
                 let accessToken = response.data.accessToken
                 let refreshToken = response.data.refreshToken
                 
@@ -111,7 +112,7 @@ class LoginViewModel: ObservableObject {
                 
                 // Start the user session if the login was successful.
                 if KeychainAccessAuth.shared.loggedIn {
-                    UserSession.shared.startSession(with: loginRequest)
+                    UserSession.shared.startSessionEmail(with: response)
                 }
             } catch {
                 print("Error loggin in: \(error)")
@@ -137,7 +138,7 @@ class LoginViewModel: ObservableObject {
                 completion(false)
                 return
             }
-            
+//
             
             self.isLoading = false
             
@@ -148,7 +149,7 @@ class LoginViewModel: ObservableObject {
                         completion(false)
                         return
                     }
-                    
+                  
                     
                     // Set the user profile from Google authentication data.
                     GoogleHandlerViewModel.shared.googleUser = GoogleHandlerViewModel.shared.getUserProfileForSendToBackend(authData: dataUser)
@@ -181,11 +182,6 @@ class LoginViewModel: ObservableObject {
         }
     }
     
-    
-    ///`GoogleSignOut` Signs out the current Google account by calling the sign-out function in `GoogleAuthentication`.
-    func GoogleSignOut(){
-        GoogleAuthentication.shared.googleSignOut()
-    }
 }
 
 

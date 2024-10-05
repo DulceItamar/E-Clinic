@@ -19,7 +19,7 @@ final class Parser: ParserProtocol {
     
 
     
-    func parseReceiveData<T>(_ data: Data, type: T.Type) -> T? where T: Decodable{
+    func parseReceiveData<T>(_ data: Data, type: T.Type) -> T? where T: Decodable {
         do {
             let decoder = JSONDecoder()
             return try decoder.decode(T.self, from: data)

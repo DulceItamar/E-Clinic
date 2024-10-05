@@ -4,7 +4,7 @@
 
 import Foundation
 
-enum TypeOfAuth {
+enum TypeOfAuth:  String, CaseIterable, Codable {
     case GoogleAuth
     case EmailAuth
 }

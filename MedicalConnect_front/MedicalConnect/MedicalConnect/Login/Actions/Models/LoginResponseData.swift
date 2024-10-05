@@ -12,4 +12,13 @@ import Foundation
 struct LoginResponseData: Decodable {
     let accessToken: String
     let refreshToken: String
+    let user: GetPatientData
+    
+    
+    enum CodingKeys: String, CodingKey {
+        case accessToken = "access_Token"
+        case refreshToken = "refresh_Token"
+        case user
+    }
+    
 }

@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct MyDataView: View {
+  
     let test = TestData()
+    let defaults = UserDefaults.standard
     
     
     var body: some View {
         VStack {
             MyDataFrameView(
-                name: test.patient1.user.name,
-                birthdate: test.patient1.birthdate,
-                phone: test.patient1.user.phone,
-                email: test.patient1.user.email,
-                password: test.patient1.user.password
+                name: defaults.string(forKey: "userName") ?? "",
+                birthdate: defaults.string(forKey: "userBirthdate") ?? "",
+                phone: defaults.string(forKey: "userPhone") ?? "",
+                email: defaults.string(forKey: "userEmail") ?? "",
+                password: defaults.string(forKey: "userPassword") ?? ""
             )
             
             Button(action: {

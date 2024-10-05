@@ -29,6 +29,7 @@ enum HomeRoute: Hashable {
     case confirmPayment
 }
 
+
 /// Extending `HomeRoute` to conform to `View`, allowing direct rendering of the associated views based on the current route.
 extension HomeRoute: View {
     var body: some View {
@@ -56,7 +57,21 @@ extension SettingRoute: View {
     var body: some View {
         switch self {
             case .details(item: let service):
-                ServiceDetailView(service: service)
+                switch service.title {
+                    case .auth:
+                        AuthTwoWaysView()
+                    case .notifications:
+                        NotificationsView()
+                    case .payment:
+                        PaymentMethodsView()
+                    case .termsAndconditions:
+                        ConditionsAndTermView()
+                    case .privacy:
+                        PrivacyPoliciesView()
+                    case .contact:
+                        ContactView()
+                    
+                }
         }
     }
 }
@@ -95,7 +110,7 @@ extension ProfileRoute : View {
 enum ExternalRoutes: Hashable {
     case signup(SignupRoute)
     case login
-    
+    case logout
     
     /// Enum representing the signup routes.
     enum SignupRoute: Hashable {
@@ -122,6 +137,9 @@ extension ExternalRoutes: View {
                     case .signupDoctor(user: let user):
                         DoctorSignupFormView(user: user)
                 }
+            case .logout:
+                OnboardingView()
+                
         }
     }
 }

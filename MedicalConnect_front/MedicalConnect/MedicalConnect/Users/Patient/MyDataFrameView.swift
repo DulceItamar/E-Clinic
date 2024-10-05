@@ -11,7 +11,7 @@ import SwiftUI
 struct MyDataFrameView: View {
     
     let name: String
-    let birthdate: Date
+    let birthdate: String
     let phone: String
     let email: String
     let password: String
@@ -59,7 +59,7 @@ struct MyDataFrameView: View {
                                 Text(name)
                                     .padding(.bottom,16)
                                 
-                                Text("\(birthdate, format: .dateTime)")
+                                Text(birthdate)
                                     .padding(.bottom,16)
                                 
                                 Text(phone)
@@ -89,7 +89,7 @@ struct MyDataFrameView: View {
 #Preview {
     MyDataFrameView(
         name: "Carina Muriel Sosa",
-        birthdate: .now,
+        birthdate: "1990-03-11",
         phone: "354-526-486",
         email: "ejemplo@gmail.com",
         password: "123456"

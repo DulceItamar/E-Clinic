@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ConfigView: View {
-    let configServices: [Service] = [
+   private let configServices: [Service] = [
         
         .init(title: .notifications ),
         .init(title: .payment),
@@ -16,49 +16,60 @@ struct ConfigView: View {
         .init(title: .termsAndconditions),
         .init(title:  .privacy),
         .init(title:  .contact),
-            .init(title: .logout)
+            
     ]
-    
+    private let userSession = UserSession.shared
+    @State private var showAlert = false
+    @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var router: TabRouter
+    @EnvironmentObject private var onboardingRouter: OnboardingRouter
+    
 
     var body: some View {
 
         
         NavigationStack(path: $router.settingStack) {
-            
-//            Text("Configuración")
-//                .font(Font.custom("Montserrat-Bold", size: 20))
-//                .padding(16)
-//                .foregroundStyle(.white)
-//                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-//                .background(.main)
-            
-            List(configServices) { service in
-                
-                NavigationLink(value: SettingRoute.details(item: service)) {
-                    Text(service.title.rawValue)
+            VStack {
+                List {
+                    ForEach(configServices) { service in
+                        NavigationLink(value: SettingRoute.details(item: service)) {
+                            Text(service.title.rawValue)
+                        }
+                        .frame(height:40)
+                    }
+                   
+                    
+                    Button("Cerrar sesión") {
+                        showAlert = true
+                    }
+                    .buttonStyle(.plain)
+                    .frame(height:40)
+                    .alert("¿Desea cerrar sesión?", isPresented: $showAlert) {
+                        Button("Sí") {
+                            userSession.logout()
+                            onboardingRouter.popToRoot()
+                            
+                            print("Cerrando sesión")
+                        }
+                        Button("No", role: .cancel) {
+                            dismiss()
+                        }
+                    }
                 }
-                .frame(height:40)
-
+                .listStyle(InsetListStyle())
+               
+                
+             
         }
         .navigationTitle("Configuración")
         .font(Font.custom("Montserrat-Regular", size: 16))
         .toolbarBackground(.main, for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
-        .navigationDestination(for: SettingRoute.self, destination: { screen in
-            switch screen {
-                case .details(item: let service):
-                    ServiceDetailView(service: service)
-                
-            }
-        })
-
-        .listStyle(InsetListStyle())
+        .navigationDestination(for: SettingRoute.self, destination: { $0 })
+       
+       
         }
         .environmentObject(router)
-
-
-            
 
     }
 }

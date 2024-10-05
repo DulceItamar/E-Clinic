@@ -95,7 +95,6 @@ struct PatientSignupFormView: View {
             }
             .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
         }
-       
     }
 }
 

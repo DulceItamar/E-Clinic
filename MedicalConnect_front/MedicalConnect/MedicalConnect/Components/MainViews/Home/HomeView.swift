@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct HomeView: View {
-    @StateObject var dataManager = DataManager()
+   
     let example = TestData()
     let showData = DoctorDataValidations()
     @State private var searchDoctorBySpeciality: Bool = false

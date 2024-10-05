@@ -54,7 +54,8 @@ struct MedicalConnectApp: App {
     var body: some Scene {
         WindowGroup {
 
-            OnboardingView()
+            //OnboardingView()
+            RootView()
                 .environmentObject(routeManager)
                 .environmentObject(onboardingRouter)
               

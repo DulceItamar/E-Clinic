@@ -15,6 +15,8 @@ class TabRouter:  ObservableObject {
     @Published  var profileStack = NavigationPath()
     @Published  var settingStack = NavigationPath()
     
+    let log = OnboardingRouter()
+    
     
     // MARK: - Home Route
     
@@ -43,6 +45,8 @@ class TabRouter:  ObservableObject {
     func popToRootSettingRoute(){
         settingStack.removeLast(settingStack.count)
     }
+    
+ 
     
     
     //MARK: - Profile Route

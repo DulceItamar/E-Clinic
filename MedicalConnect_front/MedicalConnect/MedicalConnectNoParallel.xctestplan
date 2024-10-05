@@ -1,0 +1,40 @@
+{
+  "configurations" : [
+    {
+      "id" : "A63F7A37-E84B-4C28-B4F0-C4772C49B6B6",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "-FIRDebugEnabled."
+      }
+    ],
+    "environmentVariableEntries" : [
+      {
+        "key" : "OS_ACTIVITY_MODE",
+        "value" : "disable"
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:MedicalConnect.xcodeproj",
+      "identifier" : "703AE8E32C52A16F007FEC4C",
+      "name" : "MedicalConnect"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:MedicalConnect.xcodeproj",
+        "identifier" : "70DDB3842C93523900D082B7",
+        "name" : "MedicalConnectTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -23,9 +23,11 @@ struct MainTabView: View {
                     Text("Mi perfil") }
                 .tag(TabMenu.profile)
             
+            
             HomeView()
                 .tabItem { Label("Home", systemImage: "house.fill") }
                 .tag(TabMenu.home)
+            
             
             ConfigView()
                 .tabItem { Label("Configuración", systemImage: "gearshape.2.fill") }

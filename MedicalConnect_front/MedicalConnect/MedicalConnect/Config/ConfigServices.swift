@@ -13,7 +13,7 @@ enum ConfigServices: String, CaseIterable {
     case termsAndconditions = "Términos y Condiciones"
     case privacy = "Políticas de privacidad"
     case contact = "Contacto"
-    case logout = "Cerrar Sesión"
+    
 }
 
 

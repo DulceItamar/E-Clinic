@@ -236,8 +236,7 @@ struct TestData {
             .init(title: .auth),
             .init(title: .termsAndconditions),
             .init(title:  .privacy),
-            .init(title:  .contact),
-            .init(title: .logout)
+            .init(title:  .contact)
 
 
         ]

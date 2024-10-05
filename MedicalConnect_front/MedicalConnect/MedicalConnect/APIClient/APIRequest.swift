@@ -35,6 +35,7 @@ class APIRequest<Parameters: Encodable, Model: Decodable> {
         
         
         var request = URLRequest(url: url)
+        print(request)
         request.httpMethod = method.rawValue
         
         
@@ -61,6 +62,10 @@ class APIRequest<Parameters: Encodable, Model: Decodable> {
             
             let (data, _) = try await URLSession.shared.data(for: request)
             let jsonDecoder = JSONDecoder()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            jsonDecoder.dateDecodingStrategy = .formatted(dateFormatter)
+            
             let response = try jsonDecoder.decode(LoginResponse.self, from: data)
            
             return response
@@ -69,6 +74,7 @@ class APIRequest<Parameters: Encodable, Model: Decodable> {
             throw URLError(.cannotDecodeContentData)
         }
     }
+    
     
     
         /// `setupURL` constructs a URL by combining the provided scheme, host, and path using `URLComponents`.

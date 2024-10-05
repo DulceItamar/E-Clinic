@@ -46,19 +46,19 @@ class KeychainAccessAuth: ObservableObject {
     /// - Throws: An error if there is a problem retrieving the credentials from the keychain.
     /// - Returns: A `Credentials` object containing the access token and refresh token, or `nil` values if they do not exist.
     func getCredentials() throws -> Credentials {
-        var accessToken: String? = ""
-        var refreshToken: String? = ""
         
         
         do {
-             accessToken = try keychainManager.get(KeychainKey.accessToken.rawValue)
+            let  accessToken = try keychainManager.get(KeychainKey.accessToken.rawValue)
         
-             refreshToken = try keychainManager.get(KeychainKey.refreshToken.rawValue)
+             let refreshToken = try keychainManager.get(KeychainKey.refreshToken.rawValue)
+            return Credentials(accessToken: accessToken, refreshToken: refreshToken)
         
         } catch let error {
             print("Error to get credentials: \(error) ")
+            return Credentials(accessToken: nil, refreshToken: nil)
         }
-        return Credentials(accessToken: accessToken, refreshToken: refreshToken)
+       
     }
     
     

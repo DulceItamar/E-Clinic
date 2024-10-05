@@ -53,6 +53,7 @@ struct SignUpView: View {
                             onboardingRouter.navigate(for: .signup(.signupDoctor(user: userManager.user)))
                         }
                         
+                        userManager.user.typeOfSignup = typeOfSignup
                         print("Continuar")
                         print("\(userManager.user.name)")
                     }, label: {
