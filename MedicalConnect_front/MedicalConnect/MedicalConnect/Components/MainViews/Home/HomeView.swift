@@ -16,12 +16,12 @@ struct HomeView: View {
 
     
     @EnvironmentObject private var router: TabRouter
-    @EnvironmentObject private var onboardingRouter: OnboardingRouter
+//    @EnvironmentObject private var onboardingRouter: OnboardingRouter
     
     
     var body: some View {
-        //$router.homeStack
-        NavigationStack(path: $onboardingRouter.routes) {
+        //
+        NavigationStack(path: $router.homeStack) {
             GeometryReader { geometry in
                 VStack {
                     UpperFrame(label: "Encuentra el profesional que necesitas")
@@ -58,8 +58,8 @@ struct HomeView: View {
                         
                         ForEach(example.doctors, id: \.self) { doctor in
                             
-                            NavigationLink(value: AppRoute.home(.details(doctor: doctor))) {
-                                // HomeRoute.details(doctor: doctor)
+                            NavigationLink(value:  HomeRoute.details(doctor: doctor)) {
+                                //
                                 
                                 DoctorRowView(doctor: doctor)
                             }
@@ -70,9 +70,9 @@ struct HomeView: View {
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
             }
-            .navigationDestination(for: AppRoute.self, destination: { $0 })
+            .navigationDestination(for: HomeRoute.self, destination: { $0 })
         }
-        .environmentObject(onboardingRouter)
+        .environmentObject(router)
     }
 }
 
@@ -80,5 +80,5 @@ struct HomeView: View {
 #Preview {
     @Previewable @State var path: NavigationPath = .init()
     return HomeView()
-        .environmentObject(OnboardingRouter())
+        .environmentObject(TabRouter())
 }

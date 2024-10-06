@@ -10,6 +10,8 @@ import SwiftUI
 
 
 enum TabMenu: Hashable, Identifiable, CaseIterable {
+    
+    
     case home
     case settings
     case profile
@@ -31,18 +33,18 @@ enum HomeRoute: Hashable {
 
 
 /// Extending `HomeRoute` to conform to `View`, allowing direct rendering of the associated views based on the current route.
-//extension HomeRoute: View {
-//    var body: some View {
-//        switch self {
-//            case .details(let doctor):
-//                ProfileDocView(doctor: doctor)
-//            case .schedule(let doctor):
-//                SchedulePayAppoinmentView(doctor: doctor)
-//            case .confirmPayment:
-//                BacgroundMessageView()
-//        }
-//    }
-//}
+extension HomeRoute: View {
+    var body: some View {
+        switch self {
+            case .details(let doctor):
+                ProfileDocView(doctor: doctor)
+            case .schedule(let doctor):
+                SchedulePayAppoinmentView(doctor: doctor)
+            case .confirmPayment:
+                BacgroundMessageView()
+        }
+    }
+}
 
 
 
@@ -53,28 +55,28 @@ enum SettingRoute: Hashable {
 }
 
 /// Extending `SettingRoute` to conform to `View`, allowing direct rendering of the associated views.
-//extension SettingRoute: View {
-//    var body: some View {
-//        switch self {
-//            case .details(item: let service):
-//                switch service.title {
-//                    case .auth:
-//                        AuthTwoWaysView()
-//                    case .notifications:
-//                        NotificationsView()
-//                    case .payment:
-//                        PaymentMethodsView()
-//                    case .termsAndconditions:
-//                        ConditionsAndTermView()
-//                    case .privacy:
-//                        PrivacyPoliciesView()
-//                    case .contact:
-//                        ContactView()
-//                    
-//                }
-//        }
-//    }
-//}
+extension SettingRoute: View {
+    var body: some View {
+        switch self {
+            case .details(item: let service):
+                switch service.title {
+                    case .auth:
+                        AuthTwoWaysView()
+                    case .notifications:
+                        NotificationsView()
+                    case .payment:
+                        PaymentMethodsView()
+                    case .termsAndconditions:
+                        ConditionsAndTermView()
+                    case .privacy:
+                        PrivacyPoliciesView()
+                    case .contact:
+                        ContactView()
+                    
+                }
+        }
+    }
+}
 
 
 ///`ProfileRoute` is an enum representing navigation routes within the Profile section of the app.
@@ -84,23 +86,23 @@ enum ProfileRoute: Hashable {
 
 
 /// Extending `ProfileRoute` to conform to `View`, allowing direct rendering of the associated views.
-//extension ProfileRoute : View {
-//    var body: some View {
-//        switch self {
-//            case .details(let item):
-//                switch item.title {
-//                    case .myData:
-//                        MyDataView()
-//                    case .myAppointments:
-//                        MyAppointmentsHistoryView()
-//                    case .myStudies:
-//                        myMedicalStudiesHistoryView()
-//                    case .treatments:
-//                        MyMedicalRecordsHistory()
-//                }
-//        }
-//    }
-//}
+extension ProfileRoute : View {
+    var body: some View {
+        switch self {
+            case .details(let item):
+                switch item.title {
+                    case .myData:
+                        MyDataView()
+                    case .myAppointments:
+                        MyAppointmentsHistoryView()
+                    case .myStudies:
+                        myMedicalStudiesHistoryView()
+                    case .treatments:
+                        MyMedicalRecordsHistory()
+                }
+        }
+    }
+}
 
 
 //MARK: - External Actions
@@ -125,9 +127,9 @@ enum ProfileRoute: Hashable {
 enum AppRoute: Hashable {
     case signup(SignupRoute)
     case login(TabMenu)
-    case home(HomeRoute)
-    case settings(SettingRoute)
-    case profile(ProfileRoute)
+//    case home(HomeRoute)
+//    case settings(SettingRoute)
+//    case profile(ProfileRoute)
   
 }
 
@@ -143,87 +145,120 @@ enum SignupRoute: Hashable {
 extension AppRoute : View {
     var body: some View {
         switch self {
-            case .signup(let signupRoute):
-                switch signupRoute {
-                    case .generalForm(let typeOfSignup):
-                        SignUpView(typeOfSignup: typeOfSignup)
-                        
-                    case .signupDoctor(user: let user):
-                        DoctorSignupFormView(user: user)
-                        
-                    case .signupPatient(user: let user):
-                        PatientSignupFormView(user: user)
-                        
-                }
-                
+            case .signup(let signup):
+                switch signup {
+                   case .generalForm(let typeOfSignup):
+                       SignUpView(typeOfSignup: typeOfSignup)
+
+                   case .signupDoctor(user: let user):
+                       DoctorSignupFormView(user: user)
+
+                   case .signupPatient(user: let user):
+                       PatientSignupFormView(user: user)
+
+               }
             case .login(let tabMenu):
                 switch tabMenu {
                     case .home:
                         MainTabView(selectedTabView: .home)
-                            
                     case .settings:
                         MainTabView(selectedTabView: .settings)
-                            
                     case .profile:
                         MainTabView(selectedTabView: .profile)
-                           
-                }
-                
-            case .home(let homeRoute):
-                switch homeRoute {
-                    case .details(let doctor):
-                        ProfileDocView(doctor: doctor)
-                    case .schedule(let doctor):
-                        SchedulePayAppoinmentView(doctor: doctor)
-                    case .confirmPayment:
-                        BacgroundMessageView()
-                        
-                }
-                
-            case .settings(let settingRoute):
-                switch settingRoute {
-                    case .details(item: let service):
-                        switch service.title {
-                            case .auth:
-                                AuthTwoWaysView()
-                                  
-                            case .notifications:
-                                NotificationsView()
-                                   
-                            case .payment:
-                                PaymentMethodsView()
-                                  
-                            case .termsAndconditions:
-                                ConditionsAndTermView()
-                                    
-                            case .privacy:
-                                PrivacyPoliciesView()
-                                  
-                            case .contact:
-                                ContactView()
-                                    
-                            
-                        }
-                }
-                
-            case .profile(let profileRoute):
-                switch profileRoute {
-                    case .details(let item):
-                        switch item.title {
-                            case .myData:
-                                MyDataView()
-                                    
-                            case .myAppointments:
-                                MyAppointmentsHistoryView()
-                            case .myStudies:
-                                myMedicalStudiesHistoryView()
-                            case .treatments:
-                                MyMedicalRecordsHistory()
-                        }
                 }
         }
     }
 }
+
+
+
+
+//extension AppRoute : View {
+//    var body: some View {
+//        switch self {
+//            case .signup(let signupRoute):
+//                switch signupRoute {
+//                    case .generalForm(let typeOfSignup):
+//                        SignUpView(typeOfSignup: typeOfSignup)
+//                        
+//                    case .signupDoctor(user: let user):
+//                        DoctorSignupFormView(user: user)
+//                        
+//                    case .signupPatient(user: let user):
+//                        PatientSignupFormView(user: user)
+//                        
+//                }
+//                
+//            case .login(let tabMenu):
+//                
+//                
+//                switch tabMenu {
+//                    case .home:
+//                        MainTabView(selectedTabView: .home)
+//                            
+//                    case .settings:
+//                        MainTabView(selectedTabView: .settings)
+//                            
+//                    case .profile:
+//                        MainTabView(selectedTabView: .profile)
+//                           
+//                }
+//                
+//            case .home(let homeRoute):
+//                switch homeRoute {
+//                    case .details(let doctor):
+//                        ProfileDocView(doctor: doctor)
+//                    case .schedule(let doctor):
+//                        SchedulePayAppoinmentView(doctor: doctor)
+//                    case .confirmPayment:
+//                        BacgroundMessageView()
+//                        
+//                }
+//                
+//            case .settings(let settingRoute):
+//                switch settingRoute {
+//                    case .details(item: let service):
+//                        switch service.title {
+//                            case .auth:
+//                                AuthTwoWaysView()
+//                                  
+//                            case .notifications:
+//                                NotificationsView()
+//                                   
+//                            case .payment:
+//                                PaymentMethodsView()
+//                                  
+//                            case .termsAndconditions:
+//                                ConditionsAndTermView()
+//                                    
+//                            case .privacy:
+//                                PrivacyPoliciesView()
+//                                  
+//                            case .contact:
+//                                ContactView()
+//                                    
+//                            
+//                        }
+//                }
+//                
+//            case .profile(let profileRoute):
+//                switch profileRoute {
+//                    case .details(let item):
+//                        switch item.title {
+//                            case .myData:
+//                                MyDataView()
+//                                    
+//                            case .myAppointments:
+//                                MyAppointmentsHistoryView()
+//                            case .myStudies:
+//                                myMedicalStudiesHistoryView()
+//                            case .treatments:
+//                                MyMedicalRecordsHistory()
+//                        }
+//                }
+//        }
+//    }
+//}
 
 
 

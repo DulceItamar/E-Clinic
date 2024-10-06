@@ -179,7 +179,7 @@ class LoginViewModel: ObservableObject {
                 if KeychainAccessAuth.shared.loggedIn {
                     
                     onboardingRouter.navigate(for: .login(.home))
-                    
+//                    onboardingRouter.navigate(for: .login(.settings))
                 }
         }
     }

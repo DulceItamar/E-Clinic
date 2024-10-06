@@ -15,7 +15,7 @@ class TabRouter:  ObservableObject {
     @Published  var profileStack = NavigationPath()
     @Published  var settingStack = NavigationPath()
     
-    let log = OnboardingRouter()
+//    let log = OnboardingRouter()
     
     
     // MARK: - Home Route

@@ -49,7 +49,8 @@ struct MedicalConnectApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     @StateObject private var userSession = UserSession.shared
-    let onboardingRouter = OnboardingRouter()
+    @StateObject private var onboardingRouter = OnboardingRouter()
+    @StateObject private var tabRouter = TabRouter()
    
     var body: some Scene {
         WindowGroup {
@@ -58,6 +59,7 @@ struct MedicalConnectApp: App {
             RootView()
                 .environmentObject(userSession)
                 .environmentObject(onboardingRouter)
+                .environmentObject(tabRouter)
               
             
           

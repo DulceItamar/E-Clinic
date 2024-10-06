@@ -13,8 +13,8 @@ struct ProfileDocView: View {
     let doctor: Doctor
     private let validations: DoctorDataValidations = DoctorDataValidations()
 
-//    @EnvironmentObject var router: TabRouter
-    @EnvironmentObject var onboardingRouter: OnboardingRouter
+    @EnvironmentObject var router: TabRouter
+//    @EnvironmentObject var onboardingRouter: OnboardingRouter
 
     let test = TestData()
     
@@ -52,9 +52,9 @@ struct ProfileDocView: View {
                             //This button triggers the action to schedule an appointment with the doctor. It utilizes the router to navigate to the scheduling screen. The button style is customizable, and padding is applied for better layout.
                             Button(action: {
                                 
-                                onboardingRouter.navigate(for: .home(.schedule(doctor: doctor)))
+                               // onboardingRouter.navigate(for: .home(.schedule(doctor: doctor)))
                                 
-                                //router.addHomeRoute(to: .schedule(doctor: doctor))
+                                router.addHomeRoute(to: .schedule(doctor: doctor))
                                 
                                 
                                 print("Agendar consulta")
@@ -104,7 +104,7 @@ struct ProfileDocView: View {
             
       
         }
-        .environmentObject(onboardingRouter)
+        .environmentObject(router)
     }
 }
 
@@ -114,8 +114,7 @@ struct ProfileDocView: View {
    
     let test = TestData()
     return ProfileDocView(doctor: test.doctor1)
-//        .environmentObject(TabRouter())
-        .environmentObject(OnboardingRouter())
+        .environmentObject(TabRouter())
      
 }
 
