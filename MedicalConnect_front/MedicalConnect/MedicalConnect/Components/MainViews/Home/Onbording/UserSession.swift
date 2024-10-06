@@ -24,6 +24,10 @@ final class UserSession: ObservableObject {
     private init() {
         
         setupAuthenticationObservers()
+        
+        if self.isLoggedIn {
+            loadData()
+        }
     }
     
     
@@ -128,10 +132,42 @@ final class UserSession: ObservableObject {
         userDefaults.removeObject(forKey: "userPhone")
         userDefaults.removeObject(forKey: "userPassword")
         userDefaults.removeObject(forKey: "typeOfUser")
+
+
+    }
     
+    private func loadData() {
+        let userDefaults = UserDefaults.standard
+        guard let userId = userDefaults.string(forKey: "userId"),
+              let userGenderRaw = userDefaults.string(forKey: "userGender"),
+              let userGender = Gender(rawValue: userGenderRaw),
+              let userBirthdate = userDefaults.string(forKey: "userBirthdate"),
+              let userAllergies = userDefaults.string(forKey: "userAllergies"),
+              let userName = userDefaults.string(forKey: "userName"),
+              let userEmail = userDefaults.string(forKey: "userEmail"),
+              let userPhone = userDefaults.string(forKey: "userPhone"),
+              let userPassword = userDefaults.string(forKey: "userPassword"),
+              let typeOfUserRaw = userDefaults.string(forKey: "typeOfUser"),
+              let typeOfUser = TypeOfUsers(rawValue: typeOfUserRaw) else {
+            return
+        }
         
-
+        let user = GetUser(
+            name: userName,
+            email: userEmail,
+            password: userPassword,
+            phone: userPhone,
+            typeOfUser: typeOfUser
+        )
+  
         
-
+        self.currentUser = GetPatientData(
+            id: userId,
+            birthdate: userBirthdate,
+            allergies: userAllergies,
+            gender: userGender,
+            paymentMethods: nil,
+            user: user
+        )
     }
 }

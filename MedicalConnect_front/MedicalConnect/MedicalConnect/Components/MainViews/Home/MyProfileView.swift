@@ -18,11 +18,12 @@ struct MyProfileView: View {
     ]
     
     @EnvironmentObject private var router: TabRouter
+    @EnvironmentObject private var onboardingRouter: OnboardingRouter
     
     var body: some View {
        
-
-        NavigationStack(path: $router.profileStack) {
+//        $router.profileStack
+//        NavigationStack(path: $onboardingRouter.routes ){
                 
 //                Text("Mi Perfil")
 //                    .font(Font.custom("Montserrat-Bold", size: 20))
@@ -30,24 +31,30 @@ struct MyProfileView: View {
 //                    .foregroundStyle(.white)
 //                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
 //                    .background(.main)
-                
-                List(allMenus){ option in
-                    
-                    NavigationLink(value: ProfileRoute.details(item: option)) {
+        VStack {
+            
+            UpperFrame(label: "Mi Perfil")
+            List {
+                ForEach(allMenus, id: \.title){ option in
+                    NavigationLink(value: AppRoute.profile(.details(item: option))) {
                         Text(option.title.rawValue)
                     }
                     .frame(height: 40)
-            
+                    
+                    
                 }
-                .navigationTitle("Mi Perfil")
-                .font(Font.custom("Montserrat-Regular", size: 16))
-                .toolbarBackground(.main, for: .navigationBar)
-                .toolbarBackground(.visible, for: .navigationBar)
-                .navigationDestination(for: ProfileRoute.self, destination: { $0})
-                .listStyle(InsetListStyle())
                 
             }
-        .environmentObject(router)
+        }
+        .navigationTitle("Mi Perfil")
+        .font(Font.custom("Montserrat-Regular", size: 16))
+        .toolbarBackground(.main, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+       // .navigationDestination(for: AppRoute.self, destination: { $0 })
+        .listStyle(InsetListStyle())
+                
+//            }
+        .environmentObject(onboardingRouter)
 
     }
 }
@@ -55,5 +62,5 @@ struct MyProfileView: View {
 #Preview {
     @Previewable @State var route = NavigationPath()
     return MyProfileView()
-        .environmentObject(TabRouter())
+        .environmentObject(OnboardingRouter())
 }

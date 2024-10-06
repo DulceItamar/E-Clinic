@@ -177,7 +177,9 @@ class LoginViewModel: ObservableObject {
                 
             case .EmailAuth:
                 if KeychainAccessAuth.shared.loggedIn {
-                    onboardingRouter.navigate(for: .login)
+                    
+                    onboardingRouter.navigate(for: .login(.home))
+                    
                 }
         }
     }

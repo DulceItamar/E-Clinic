@@ -21,21 +21,26 @@ struct ConfigView: View {
     private let userSession = UserSession.shared
     @State private var showAlert = false
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject private var router: TabRouter
+ //   @EnvironmentObject private var router: TabRouter
     @EnvironmentObject private var onboardingRouter: OnboardingRouter
     
 
     var body: some View {
 
-        
-        NavigationStack(path: $router.settingStack) {
+//        $router.settingStack
+//        NavigationStack(path: $onboardingRouter.routes) {
             VStack {
+                UpperFrame(label: "Configuración")
+                
                 List {
                     ForEach(configServices) { service in
-                        NavigationLink(value: SettingRoute.details(item: service)) {
+//                        SettingRoute.details(item: service)
+                        NavigationLink(value: AppRoute.settings(.details(item: service))) {
                             Text(service.title.rawValue)
+                                
                         }
                         .frame(height:40)
+                       
                     }
                    
                     
@@ -47,6 +52,7 @@ struct ConfigView: View {
                     .alert("¿Desea cerrar sesión?", isPresented: $showAlert) {
                         Button("Sí") {
                             userSession.logout()
+                            
                             onboardingRouter.popToRoot()
                             
                             print("Cerrando sesión")
@@ -57,25 +63,27 @@ struct ConfigView: View {
                     }
                 }
                 .listStyle(InsetListStyle())
-               
-                
-             
+            
+            
         }
-        .navigationTitle("Configuración")
-        .font(Font.custom("Montserrat-Regular", size: 16))
+       
+       
         .toolbarBackground(.main, for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
-        .navigationDestination(for: SettingRoute.self, destination: { $0 })
+        .navigationTitle("Configuración")
+        .font(Font.custom("Montserrat-Regular", size: 16))
+     //   .navigationDestination(for: AppRoute.self, destination: { $0 })
        
        
-        }
-        .environmentObject(router)
+//        }
+     
+        //.environmentObject(onboardingRouter)
 
     }
 }
 
 #Preview {
-    @Previewable @State var path = NavigationPath()
+   // @Previewable @State var path = NavigationPath()
     return ConfigView()
-        .environmentObject(TabRouter())
+        .environmentObject(OnboardingRouter())
 }

@@ -18,6 +18,7 @@ struct ServiceDetailView: View {
         .toolbarBackground(.main, for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
         .navigationTitle(service.title.rawValue)
+        
     }
 }
 

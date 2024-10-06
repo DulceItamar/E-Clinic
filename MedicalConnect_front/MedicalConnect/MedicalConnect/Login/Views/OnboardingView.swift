@@ -133,6 +133,7 @@ struct OnboardingView: View {
                                 Button {
                                     onboardingManager.loginWithGoogle { success in
                                         if success {
+                                            
                                             onboardingManager.navigateToNextView(onboardingRouter: onboardingRouter, login: .GoogleAuth)
                                            
                                         } else {
@@ -151,7 +152,7 @@ struct OnboardingView: View {
                                 }
                                 .buttonStyle(SignInWithGoogleButtonStyle(isEnabled: true))
                             }
-                            .navigationDestination(for: ExternalRoutes.self) { $0 }
+                            .navigationDestination(for: AppRoute.self) { $0 }
                             
                             Spacer()
                         }
@@ -177,8 +178,10 @@ struct OnboardingView: View {
                 StartingView(showStartingView: $showStartingView)
             })
             .environmentObject(onboardingRouter)
-            .navigationDestination(for: ExternalRoutes.self) { $0 }
+            .navigationDestination(for: AppRoute.self) { $0 }
+            
         }
+        .tint(.babyBlue200)
     }
 }
 

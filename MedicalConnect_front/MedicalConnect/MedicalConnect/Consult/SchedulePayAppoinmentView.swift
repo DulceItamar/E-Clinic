@@ -20,6 +20,7 @@ struct SchedulePayAppoinmentView: View {
     @State var selectedAppointmenDate: Date = Date()
     @State var confirmAppointment: Bool = false
     @EnvironmentObject private var route : TabRouter
+    @EnvironmentObject private var onboardingRoute : OnboardingRouter
 
     var body: some View {
         
@@ -71,7 +72,9 @@ struct SchedulePayAppoinmentView: View {
                 .padding(18)
                 
                 Button(action: {
-                    route.addHomeRoute(to: .confirmPayment)
+                    
+                    onboardingRoute.navigate(for: .home(.confirmPayment))
+                    //route.addHomeRoute(to: .confirmPayment)
                 
                     print("Realizar pago")
                 
@@ -85,7 +88,7 @@ struct SchedulePayAppoinmentView: View {
                 .padding(.vertical, 12)
             }
         }
-        .environmentObject(route)
+        .environmentObject(onboardingRoute)
     }
     
     
@@ -110,5 +113,5 @@ struct SchedulePayAppoinmentView: View {
     let test = TestData()
     
     return SchedulePayAppoinmentView(doctor: test.doctor1)
-       .environmentObject(TabRouter())
+       .environmentObject(OnboardingRouter())
 }

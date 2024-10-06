@@ -9,7 +9,7 @@ import SwiftUI
 final class OnboardingRouter: ObservableObject {
     @Published var routes = NavigationPath()
     
-    func navigate(for route: ExternalRoutes){
+    func navigate(for route: AppRoute){
         routes.append(route)
     }
     
@@ -18,6 +18,10 @@ final class OnboardingRouter: ObservableObject {
         routes.removeLast()
     }
     
+    
+    func popToHome(){
+        routes.removeLast(3)
+    }
     func popToRoot(){
         routes.removeLast(routes.count)
     }

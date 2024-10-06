@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BacgroundMessageView: View {
     @EnvironmentObject private var routeManager : TabRouter
+    @EnvironmentObject private var onboardingRouter : OnboardingRouter
     private let message: String = "Podrás ver los detalles en el menú MIS CITAS, ingresando a tu perfil."
     private let submessage: String = "Allí podrás crear un recordatorio si lo deseas y te enviaremos una notificación el día anterior a la consulta."
     
@@ -42,8 +43,8 @@ struct BacgroundMessageView: View {
                 .frame(height: 260)
             
             Button(action: {
-                
-                routeManager.popToRootHomeRoute()
+                onboardingRouter.popToHome()
+                //routeManager.popToRootHomeRoute()
 //                routeManager.popToRoot()
                 
                 
@@ -62,11 +63,11 @@ struct BacgroundMessageView: View {
         .navigationTitle("Cita confirmada")
         .navigationBarBackButtonHidden()
         .padding(.horizontal, 16)
-        .environmentObject(routeManager)
+        .environmentObject(onboardingRouter)
     }
 }
 
 #Preview {
     BacgroundMessageView()
-        .environmentObject(TabRouter())
+        .environmentObject(OnboardingRouter())
 }

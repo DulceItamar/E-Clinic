@@ -11,11 +11,12 @@ struct MainTabView: View {
     
     
     @State var selectedTabView: TabMenu = .home
-    @EnvironmentObject private var router: TabRouter
+ //   @EnvironmentObject private var router: TabRouter
+    @EnvironmentObject private var onboardingRouter: OnboardingRouter
     
     var body: some View {
         
-        TabView(selection: tabSelection()) {
+        TabView(selection: $selectedTabView) {
             MyProfileView()
                 .tabItem {  
                     Image("heart.profile-3")
@@ -49,41 +50,44 @@ struct MainTabView: View {
 #Preview {
     MainTabView()
         .environmentObject(TabRouter())
+        .environmentObject(OnboardingRouter())
 }
 
-extension MainTabView {
-    private func tabSelection() -> Binding<TabMenu>{
-        Binding {
-            self.selectedTabView
-        } set: { tappedTab in
-            switch tappedTab {
-                case .home:
-                    if !router.homeStack.isEmpty {
-                        router.popToRootHomeRoute()
-                    }
-                   
-                case .profile:
-                    if !router.profileStack.isEmpty {
-                        router.popToRootProfileRoute()
-                    }
-                   
-                case .settings:
-                    if !router.settingStack.isEmpty {
-                        router.popToRootSettingRoute()
-                    }
-                    
-                   
-            }
-            
-         
-            self.selectedTabView = tappedTab
-        }
-
-    }
-    
-    
-    
-}
+//extension MainTabView {
+//    private func tabSelection() -> Binding<TabMenu>{
+//        Binding {
+//            self.selectedTabView
+//        } set: { tappedTab in
+//            switch tappedTab {
+//                case .home:
+//                    
+//                    
+//                    if !router.homeStack.isEmpty {
+//                        router.popToRootHomeRoute()
+//                    }
+//                   
+//                case .profile:
+//                    if !router.profileStack.isEmpty {
+//                        router.popToRootProfileRoute()
+//                    }
+//                   
+//                case .settings:
+//                    if !router.settingStack.isEmpty {
+//                        router.popToRootSettingRoute()
+//                    }
+//                    
+//                   
+//            }
+//            
+//         
+//            self.selectedTabView = tappedTab
+//        }
+//
+//    }
+//    
+//    
+//    
+//}
 
 
 //extension MainTabView {

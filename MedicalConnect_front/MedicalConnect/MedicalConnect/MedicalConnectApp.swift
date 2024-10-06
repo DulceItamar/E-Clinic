@@ -48,15 +48,15 @@ struct MedicalConnectApp: App {
     //Register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
-    let routeManager = TabRouter()
+    @StateObject private var userSession = UserSession.shared
     let onboardingRouter = OnboardingRouter()
    
     var body: some Scene {
         WindowGroup {
 
-            //OnboardingView()
+           // OnboardingView()
             RootView()
-                .environmentObject(routeManager)
+                .environmentObject(userSession)
                 .environmentObject(onboardingRouter)
               
             

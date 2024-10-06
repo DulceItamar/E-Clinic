@@ -46,8 +46,10 @@ struct SignUpView: View {
                         
                         if userManager.selectedTypeOfUser == .patient {
                             print("Patient")
-                            onboardingRouter.navigate(for: .signup(.signPatient(user: userManager.user)))
-                            //onboardingRouter.
+//                            onboardingRouter.navigate(for: .signup(.signPatient(user: userManager.user)))
+                            
+                            onboardingRouter.navigate(for: .signup(.signupPatient(user: userManager.user)))
+                            
                         } else if userManager.selectedTypeOfUser == .doctor {
                             print("Doctor")
                             onboardingRouter.navigate(for: .signup(.signupDoctor(user: userManager.user)))
