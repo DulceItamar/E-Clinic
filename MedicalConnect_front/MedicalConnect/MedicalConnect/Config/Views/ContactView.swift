@@ -10,7 +10,10 @@ import SwiftUI
 struct ContactView: View {
     var body: some View {
         VStack{
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            Text("Si tienes alguna pregunta sobre estos Términos y Condiciones, puedes ponerte en contacto con nosotros a través de:")
+            
+            Text("Correo electrónico: admon.contact@econnect.com]")
+            
         }
         .toolbarBackground(.main, for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)

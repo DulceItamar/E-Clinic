@@ -27,10 +27,8 @@ struct ConfigView: View {
 
     var body: some View {
 
-//        $router.settingStack
         NavigationStack(path:  $router.settingStack) {
-        
-//                UpperFrame(label: "Configuración")
+                
                 
                 List {
                     ForEach(configServices) { service in
@@ -42,7 +40,7 @@ struct ConfigView: View {
                         .frame(height:40)
                        
                     }
-                   
+                    
                     
                     Button("Cerrar sesión") {
                         showAlert = true
@@ -72,11 +70,7 @@ struct ConfigView: View {
                 .toolbarBackground(.main, for: .navigationBar)
             
         }
-       
-
-//        .environmentObject(onboardingRouter)
         .environmentObject(router)
-
     }
 }
 

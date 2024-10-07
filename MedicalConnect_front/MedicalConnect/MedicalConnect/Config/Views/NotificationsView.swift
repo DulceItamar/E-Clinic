@@ -9,9 +9,10 @@ import SwiftUI
 
 struct NotificationsView: View {
     var body: some View {
-        VStack{
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Notificaciones")
         }
+        .padding()
         .toolbarBackground(.main, for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
         .navigationTitle("Notificaciones")
