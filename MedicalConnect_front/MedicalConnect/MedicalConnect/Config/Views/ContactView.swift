@@ -12,7 +12,7 @@ struct ContactView: View {
         VStack{
             Text("Si tienes alguna pregunta sobre estos Términos y Condiciones, puedes ponerte en contacto con nosotros a través de:")
             
-            Text("Correo electrónico: admon.contact@econnect.com]")
+            Text("Correo electrónico: admon.contact@eclinic.com")
             
         }
         .toolbarBackground(.main, for: .navigationBar)
