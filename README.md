@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # 🏥 E-Clinic - Plataforma de Consultas Médicas en Línea
 
 E-Clinic es una aplicación moderna para la gestión de consultas médicas en línea, diseñada tanto para pacientes como para profesionales de la salud. La plataforma permite agendar citas, realizar consultas virtuales, almacenar historiales médicos y ofrecer una experiencia fluida y segura de atención médica a distancia.
@@ -50,8 +50,3 @@ Aquí encontrarás los detalles de la planeación del proyecto:
 https://github.com/user-attachments/assets/e12299fe-8176-47b6-8e1b-87de11108835
 
 
-
-=======
-# c19-136-swift
-Aplicación para citas medicas. 
->>>>>>> 0878e6e (Initial commit)
