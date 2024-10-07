@@ -1,13 +1,24 @@
-# 🏥 MedicalConnect - Plataforma de Consultas Médicas en Línea
+# 🏥 E-Clinic - Plataforma de Consultas Médicas en Línea
 
-MedicalConnect es una aplicación moderna para la gestión de consultas médicas en línea, diseñada tanto para pacientes como para profesionales de la salud. La plataforma permite agendar citas, realizar consultas virtuales, almacenar historiales médicos y ofrecer una experiencia fluida y segura de atención médica a distancia.
+E-Clinic es una aplicación moderna para la gestión de consultas médicas en línea, diseñada tanto para pacientes como para profesionales de la salud. La plataforma permite agendar citas, realizar consultas virtuales, almacenar historiales médicos y ofrecer una experiencia fluida y segura de atención médica a distancia.
 
-Esta aplicación se realizó en una simulación laboral organizada por la organización [No Country](https://www.linkedin.com/company/nocountrytalent/) en Julio - Agosto 2024 en colaboración con [Laura Leyes](https://www.linkedin.com/in/laura-leyes/)
+Esta aplicación se realizó en una simulación laboral organizada por la organización [No Country](https://www.linkedin.com/company/nocountrytalent/) en Julio - Agosto 2024 en colaboración con [Laura Leyes](https://www.linkedin.com/in/laura-leyes/). 
+
+
 
 | Nombre                        | Rol             |
 | ----------------------------- | --------------- |
 | [Dulce Itamar Vigueras Ballesteros](https://www.linkedin.com/in/itamar-vigueras/) | Developer       |
 | [Laura Leyes](https://github.com/LeyesLaura/LeyesLaura)  | UX/UI Designer  | 
+
+
+
+# 🗒️ Presentación del proyecto
+<img width="864" alt="Screenshot 2024-10-06 at 10 57 01 p m" src="https://github.com/user-attachments/assets/3011c4db-e1da-4abd-912f-cb0e609e3617">
+
+Aquí encontrarás los detalles de la planeación del proyecto: 
+
+[Planeación de E-Clinic](https://www.behance.net/gallery/209145649/E-CLINIC-mobile-app)
 
 # 🚀 Funcionalidades
 
@@ -32,5 +43,10 @@ Esta aplicación se realizó en una simulación laboral organizada por la organi
 - Autenticación robusta con almacenamiento seguro de credenciales usando Keychain.
 - Gestión de tokens de acceso y actualización de forma segura con mecanismos de refresh tokens.
 - Protección de datos sensibles como historiales médicos, asegurando su confidencialidad.
+
+  # ▶️ Visualización de la aplicación
+
+https://github.com/user-attachments/assets/e12299fe-8176-47b6-8e1b-87de11108835
+
 
 
